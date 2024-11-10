@@ -1,0 +1,451 @@
+﻿<style type="text/css">
+    html {
+        font-size: 14px;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    a {
+        text-decoration: none !important
+    }
+
+    body {
+        background-color: white
+    }
+
+    .container {
+        /*border: 0.5px solid deeppink;*/
+        border-radius: 10px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    header {
+        background-color: saddlebrown;
+        border: 2px solid #000000;
+        padding: 10px;
+    }
+
+    .container-lg {
+        align-items: center;
+        display: flex;
+        justify-content: space-between
+    }
+
+    .logo img {
+        height: 50px;
+        text-align: center
+    }
+
+    nav ul {
+        list-style-type: none;
+        display: flex;
+    }
+
+    nav-ul li {
+        margin-left: 20px;
+    }
+
+    .header_gt_list {
+        align-items: center;
+        display: flex;
+    }
+
+    .link-underline-opacity-0 light {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin: 0 15px 0 0;
+        cursor: pointer;
+    }
+
+        .link-underline-opacity-0 light:hover {
+            color: antiquewhite
+        }
+
+    .cuahang {
+        text-decoration: none;
+        color: black;
+        font-weight: 200;
+    }
+
+    .header_gt_item_b {
+        color: white;
+        cursor: pointer;
+        font-size: 1.5rem;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        display: flex
+    }
+
+        .header_gt_item_b:hover {
+            color: antiquewhite
+        }
+
+    .header_gt_item_link:hover {
+        color: antiquewhite
+    }
+
+    .navbar__spacer {
+        flex: 1;
+    }
+
+    .logo {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        display: flex
+    }
+
+        .logo a {
+            color: white;
+            cursor: pointer;
+            font-size: 1.8rem;
+        }
+
+            .logo a:hover {
+                color: antiquewhite
+            }
+
+    footer {
+        background-color: sandybrown;
+        border-top: 4px solid deeppink;
+        padding-top: 12px;
+        display: flex;
+        justify-content: center;
+    }
+
+        footer h3 {
+            color: black;
+        }
+
+    .row {
+        margin: auto;
+        display: flex;
+        color: white
+    }
+
+    .footer-static-content a:hover {
+        background-position: 0px -40px;
+        padding-left: 20px;
+        color: red;
+    }
+
+    .footer-static-title {
+        font-size: 1.3rem;
+    }
+
+    .footer-static-content {
+        color: white
+    }
+
+    footer li a {
+        color: black;
+        text-decoration: none;
+        color: white;
+    }
+
+    .col-md-4 {
+        color: saddlebrown;
+        font-weight: bold;
+        font-size: 100%;
+        justify-content: center;
+        position: relative;
+        min-height: 1px;
+    }
+
+    .footer-list {
+        padding-left: 0;
+        list-style: none;
+        letter-spacing: 2px;
+        line-height: 2;
+    }
+
+    .search {
+        display: flex;
+        width: 500px;
+        height: 32px;
+        margin: 0 0 0px 60px;
+        border-color: antiquewhite;
+        color: antiquewhite;
+        border-radius: 0.5px;
+        align-content: center
+    }
+
+    .search_text {
+        width: 800px;
+    }
+
+    .search_icon {
+        background-color: sandybrown;
+        font-size: 1.2rem;
+        align-content: center;
+        align-items: center;
+        border-left: 0;
+        padding: 1px 0.625rem;
+        color: white;
+        border: 1px solid antiquewhite;
+        text-decoration: none !important;
+        height: 2.25rem;
+    }
+
+        .search_icon:hover {
+            background-color: rosybrown
+        }
+</style>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <header>
+        <nav class="container-lg d-flex justify-content-between">
+            <div class="logo">
+                <i class="header_gt_item_b fa-solid fa-gifts"></i>
+                <a href="~/Home/Test" class="cuahang">GAUBONG.COM</a>
+            </div>
+            <div class="search">
+                <input class="search_text" placeholder="Nhập sản phẩm cần tìm" />
+                <a href=""><i class="search_icon fa-solid fa-magnifying-glass"></i></a>
+            </div>
+            <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
+                @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
+                        <i class="header_gt_item_b fa-solid fa-bars"></i>
+                        <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
+                    </li>*@
+                <li class="header_gt_item gap-1 align-item-center d-flex">
+                    <i class="header_gt_item_b fa-solid fa-bell"></i>
+                    <a href="" class=" header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Thông báo</a>
+                </li>
+                <li class="header_gt_item gap-1 align-item-center d-flex">
+                    <i class="header_gt_item_b fa-regular fa-circle-question"></i>
+                    <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Trợ giúp</a>
+                </li>
+                <li class="header_gt_item gap-1 align-item-center d-flex">
+                    <a href="~/Account/Register" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light ">Đăng ký</a>
+                </li>
+                <li class="header_gt_item gap-1 align-item-center d-flex">
+                    <a href="/Account/Login" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Đăng nhập</a>
+                </li>
+                <li class="header_gt_item gap-1 align-item-center d-flex">
+                    <i class="header_gt_item_b fa-solid fa-cart-shopping"></i>
+                    <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Giỏ hàng</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer class="footer">
+            <div class="row">
+                <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+                <style>
+                    .footer-image-container {
+                        margin: auto;
+                    }
+
+                    .hinhanh {
+                        width: 60%;
+                    }
+
+                    .footer {
+                        flex-grow: 1;
+                        width: 100%;
+                        box-sizing: border-box
+                    }
+                </style>
+                <div class="col-md-4">
+                    <div>
+                        <div>
+                            <div style="margin-bottom: 8px; padding: 10px 11px;">
+                                <div class="chinhchu" style="font-family: Arial; font-size: 2.6rem; font-weight: bold ">Gaubong.com</div>
+                                <img src="~/Content/Image/hinh-nen-gau-cute-6.jpg" class="hinhanh" />
+                            </div>
+                            <div style="font-size:1.2rem;font-family: Arial; ">
+                                Lầu 5, 828 Sư Vạn Hạnh, phường 13, quận 10, thành phố Hồ Chí Minh.
+                            </div>
+                            <div style="font-size: 1.2rem; font-family: Arial;">
+                                Công ty cổ phần Gấu bông Hồ Chí Minh
+                            </div>
+                            <div style="font-size: 1.2rem; font-family: Arial;">
+                                806 QL22, ấp Mỹ Hoà 3, Hóc Môn, Hồ Chí Minh
+                            </div>
+                            <div class="col-sm-12 col-md-12 col-xs-12 address-footer" style="font-size:13px; padding-top: 5px;"></div>
+                            <div class="col-sm-12 col-md-12 col-xs-12 address-footer" style="margin: 15px 0px;">
+                                <a target="_blank" href="">
+                                    <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/logo-bo-cong-thuong-da-thong-bao1.png" style="width: 100px;" height="40">
+                                </a>
+                            </div>
+                        </div>
+                        <div align="center" style="font-size:14.5px; margin-bottom:20px; margin-top:10px; padding: 0px;text-align: left;margin-left: 10px;">
+                            <a target="_blank" href="" title="Facebook">
+                                <img alt="Facebook" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/footer/Facebook-on.png">
+                            </a>
+                            <a target="_blank" href="" title="Instagram">
+                                <img alt="Instagram" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Insta-on.png">
+                            </a>
+                            <a target="_blank" href="" title="Youtube">
+                                <img alt="Youtube" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/Youtube-on.png">
+                            </a>
+                            <a target="_blank" href="" title="Tumblr">
+                                <img alt="Tumblr" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/tumblr-on.png">
+                            </a>
+                            <a target="_blank" href="" title="Twitter">
+                                <img alt="Twitter" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/twitter-on.png">
+                            </a>
+                            <a target="_blank" href="" title="Pinterest">
+                                <img alt="Pinterest" src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images//footer/pinterest-on.png">
+                            </a>
+                        </div>
+                        <div style="display: inline-block; text-align: left;">
+                            <div class="col-sm-6 col-md-6 col-xs-6" style="text-align: right;">
+
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-xs-6" style="padding-left: 5px;">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h2>Dịch Vụ</h2>
+                            </div>
+                            <div class="footer-static-content">
+                                <ul class="footer-list" style="align-content: space-between; font-family: Arial;">
+                                    <li>
+                                        @Html.ActionLink("Điều khoản sử dụng", "dksd", "Customers")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Bảo mật thông tin cá nhân", "csbmttcn", "Customers")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Bảo mật thanh toán", "bmtt", "Customers")
+                                    </li>
+                                    <li>
+                                        @Html.ActionLink("Giới thiệu cửa hàng", "gtch", "Customers")
+                                    </li>
+
+                                    <li>
+                                        @Html.ActionLink("Hệ thống cửa hàng", "htch", "Customers")
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h2>Hỗ trợ</h2>
+                            </div>
+                            <div class="footer-static-content ">
+                                <ul class="footer-list">
+                                    <li>@Html.ActionLink("Chính sác đổi trả hoàn tiền", "csdtht", "Customers")</li>
+                                    <li>
+                                        @Html.ActionLink("Bảo hành - bồi hoàn", "BaoHanh", "Customers")
+                                    </li>
+
+                                    <li>
+                                        @Html.ActionLink("Chính sách vận chuyển", "ShippingPolicy", "Customers")
+                                    </li>
+
+                                    <li>
+                                        @Html.ActionLink("Khách thân thiết", "KhachThanThiet", "Customers")
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 col-md-4 col-sms-6 col-smb-12">
+                            <div class="footer-static-title">
+                                <h2>Tài khoản của tôi</h2>
+                            </div>
+                            <div class="footer-static-content">
+                                <ul class="footer-list">
+                                    <li class="first footer_login_link">
+                                        <a href="" onclick="return false;">
+                                            Đăng nhập/Tạo mới tài khoản
+                                        </a>
+                                    </li>
+                                    <li>
+                                    <li>
+                                        @Html.ActionLink("Thay đổi địa chỉ ", "ChangeAddress", "Customers")
+                                    </li>
+
+                                    <li>
+                                        <a href="">
+                                            Chi tiết tài
+                                            khoản
+                                        </a>
+                                    </li>
+                                    <li class="last">
+                                        <a href="">
+                                            Lịch
+                                            sử mua
+                                            hàng
+                                        </a>
+
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" style="max-width: 100%; ">
+                        <div class="footer-static-title" style="margin-top: 15px; color:saddlebrown">
+                            <h2>Liên hệ</h2>
+                        </div>
+                        <div class="Contact" style="margin: 5px -5px; display: flex; position:relative">
+                            <div class="col-md-4" style="padding-right:30px;width:auto "><em class="fa fa-map-marker" style="font-size:13px">&nbsp;</em>828 Sư Vạn Hạnh, phường 13, quận 10, TP. HCM</div>
+                            <div class="col-md-4" style="padding-right: 30px;width:auto  "><em class="fa fa-envelope" style="font-size:13px">&nbsp;</em>cskh@gaubong.com.vn</div>
+                            <div class="col-md-4"><em class="fa fa-phone" style="font-size:13px">&nbsp;</em>1900 186118</div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 25px; height: 80px; margin-right: 16px;">
+                        <div class="footer-image-container">
+                            <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/icon_snappy1.png" width="150">
+                        </div>
+                        <div class="footer-image-container">
+                            <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/logo_lex.jpg" width="90">
+                        </div>
+                        <div class="footer-image-container">
+                            <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/Logo_ninjavan.png" width="150">
+                        </div>
+                        <div class="footer-image-container">
+                            <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/ahamove_logo3.png" width="160">
+                        </div>
+                        <div class="footer-image-container">
+                            <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/vnpost1.png" width="100">
+                        </div>
+                    </div>
+                    <div class="hidden-xs" style="display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 25px; height: 80px; margin-right: 16px;margin-top: 10px;">
+                        <div class="footer-image-container">
+                            <img style="max-width: 120px;  " src="https://cdn0.fahasa.com/media//wysiwyg/Logo-NCC/vnpay_logo.png">
+                        </div>
+                        <div class="footer-image-container">
+                            <img style="height: 50px; " src="https://cdn0.fahasa.com/media//wysiwyg/Logo-NCC/momopay.png">
+                        </div>
+                        <div class="footer-image-container">
+                            <img style="height: 44px;  " src="https://cdn0.fahasa.com/media//wysiwyg/Logo-NCC/shopeepay_logo.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
