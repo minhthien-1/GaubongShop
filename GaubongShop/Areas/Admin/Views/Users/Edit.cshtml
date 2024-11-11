@@ -1,0 +1,76 @@
+﻿@model GaubongShop.Models.User
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <style>
+        .bg-cam {
+            background-color: navajowhite
+        }
+        .upd a{
+            color:white;
+        }
+        .nut{
+            color:white;
+        }
+    </style>
+</head>
+<h2 class="bg-cam">CHỈNH SỬA TÀI KHOẢN</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.IDUser)
+
+        <div class="d-flex form-group">
+           <div class="control-label col-md-2">
+               <b>Tên tài khoản</b>
+           </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="d-flex form-group">
+            <div class="control-label col-md-2">
+                <b>Mật khẩu </b>
+            </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="d-flex form-group">
+            <div class="control-label col-md-2">
+                <b>Vai trò</b>
+            </div>
+            <div class="col-md-3">
+                @Html.EditorFor(model => model.UserRole, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserRole, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="upd col-md-offset-2 col-md-10">
+                <input type="submit" value="Cập nhật" class="nut btn btn-default btn-sm" style="background-color:burlywood" />
+                @Html.ActionLink("Quay lại danh sách", "Index", null, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
+
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

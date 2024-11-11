@@ -1,0 +1,47 @@
+﻿@model IEnumerable<GaubongShop.Models.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <style>
+        .bg-cam{
+            background-color:navajowhite;
+            align-items:center;  
+        }
+        .upd a{
+            color:white;
+        }
+    </style>
+</head>
+<h2 class="bg-cam">DANH SÁCH DANH MỤC SẢN PHẨM</h2>
+
+
+<table class="table bg-light col-lg-12 col-sm-3">
+    <tr>
+        <th style="background-color:antiquewhite" class="col-lg-8 col-md-4 col-sm-2">
+            @*@Html.DisplayNameFor(model => model.CategoryName)*@
+            TÊN DANH MỤC
+        </th>
+        <th style="background-color:antiquewhite"class="col-lg-4 col-md-2 col-sm-1"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CategoryName)
+            </td>
+            <td class="upd">
+                @Html.ActionLink("Cập nhật", "Edit", new { id = item.CategoryID }, new { @class = "btn btn-default btn-sm" ,@style= "background-color:burlywood" }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.CategoryID }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.CategoryID }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
+            </td>
+        </tr>
+    }
+
+</table>
+<p class="upd">
+    @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-default btn-sm",@style= "background-color:burlywood" })
+</p>

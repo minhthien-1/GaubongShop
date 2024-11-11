@@ -1,0 +1,66 @@
+﻿@model GaubongShop.Models.User
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <style>
+        .bg-cam{
+            background-color:navajowhite;
+        }
+        .bg-doimau{
+            background-color:antiquewhite;
+        }
+        .upd a{
+            color:white;
+        }
+        .nut{
+            color:white;
+        }
+        .name b{
+            font-weight:bold!important;
+        }
+    </style>
+</head>
+<h2 class="bg-cam">XÓA TÀI KHOẢN</h2>
+
+<h3 class="bg-doimau">BẠN CHẮN CHẮN LÀ MUỐN XÓA TÀI KHOẢN NÀY CHỨ?</h3>
+<div>
+    <hr />
+    <dl class="row">
+        <dt class="name col-sm-2">
+            <b>Tên tài khoản</b>
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+
+        <dt class="name col-sm-2">
+            <b>Mật khẩu</b>
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+
+        <dt class="name col-sm-2">
+            <b>Vai trò</b>
+        </dt>
+
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.UserRole)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="upd">
+            <input type="submit" value="Xóa" class="nut btn btn-default btn-sm" style="background-color:burlywood"/> |
+            @Html.ActionLink("Quay lại danh sách", "Index", null, new {@class="btn btn-default btn-sm", @style="background-color:burlywood"})
+        </div>
+    }
+</div>

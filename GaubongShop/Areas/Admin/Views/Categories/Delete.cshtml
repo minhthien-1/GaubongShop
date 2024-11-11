@@ -1,0 +1,43 @@
+﻿@model GaubongShop.Models.Category
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<head>
+    <style>
+        .bg-cam {
+            background-color: navajowhite;
+        }
+        .bg-doimau{
+            background-color:antiquewhite;
+        }
+        .upd {
+            color:white
+        }
+    </style>
+    
+</head>
+<h2 class="bg-cam">XÓA DANH MỤC</h2>
+
+<h3 class="bg-doimau">Bạn chắc chắn muốn xóa danh mục này à?</h3>
+@using (Html.BeginForm())
+{@Html.AntiForgeryToken()
+<div>
+    <dl class="row">
+        <dt class="col-sm-2">
+            Tên danh mục:
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CategoryName)
+        </dd>
+
+    </dl>
+        <div class="form-group">
+            <div class="upd col-md-offset-2 col-md-10">
+                <input type="submit" value="Xóa" class="btn btn-default btn-sm" style="background-color:burlywood" /> |
+                @Html.ActionLink("Quay lại danh mục", "Index", null, new { @class = "btn btn-default btn-sm" , @style = "background-color:burlywood" })
+            </div>
+        </div>
+</div>
+}
+<hr />

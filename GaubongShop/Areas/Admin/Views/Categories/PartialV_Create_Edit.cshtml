@@ -1,0 +1,32 @@
+﻿<head>
+    <style>
+        .upd a{
+            color:black;
+        }
+        .upd {
+            color:white;
+        }
+    </style>
+</head>
+@* Truyền vào giữa form con và cha *@
+@model GaubongShop.Models.Category
+@* Form con sẽ được nhúng vào form cha là Create và Edit *@
+<div class="form-group">
+    @*@Html.LabelFor(model => model.CategoryName, htmlAttributes: new { @class = "control-label col-md-2" })*@
+    <div class="control-label col-md-2">Tên danh mục</div>
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.CategoryName, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.CategoryName, "", new { @class = "text-danger" })
+    </div>
+</div>
+<hr />
+<div class="form-group ">
+    <div class="upd col-md-offset-2 col-md-10">
+        <input type="submit" value="Lưu" class="btn btn-default btn-sm" style="background-color:burlywood"/>
+        @Html.ActionLink("Quay lại danh mục", "Index", null, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
+    </div>
+
+</div>
+@*<div>
+            @Html.ActionLink("Quay lại danh mục", "Index", null, new {@class="btn btn-primary btn-sm"})
+    </div>*@
