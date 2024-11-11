@@ -17,7 +17,8 @@ namespace GaubongShop.Areas.Admin
             context.MapRoute(
                 "Admin_default",
                 "Admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Index", id = UrlParameter.Optional },
+            namespaces: new[] { "GaubongShop.Areas.Admin.Controllers" }  // Chỉ định namespace cho Admin
             );
         }
     }
