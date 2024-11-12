@@ -276,6 +276,7 @@
     <Content Include="Areas\Admin\Views\OrderDetails\Details.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\OrderDetails\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Users\Partial_Edit_Create.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
