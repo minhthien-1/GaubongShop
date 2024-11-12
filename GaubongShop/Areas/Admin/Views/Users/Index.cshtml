@@ -1,61 +1,111 @@
-﻿@model IEnumerable<GaubongShop.Models.User>
+﻿@model GaubongShop.Models.ViewModel.UserASearchVm
 
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+<html>
 <head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Search</title>
     <style>
-        .btn-cam {
-            background-color: navajowhite;
+        .search-container,.order-container{
+            padding-top:20px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
         }
-        .upd a{
+        .tim{
             color:white;
-        }
-        .them a{
-            color:orange;
-        }
-        .them a:hover{
-            color:firebrick;
         }
     </style>
 </head>
-<h2 class="btn-cam">QUẢN LÝ TÀI KHOẢN ADMIN</h2>
+<body>
+    <!--Form tìm kiếm-->
+    @using (Html.BeginForm("Index", "Users", FormMethod.Get))
+    {
+        <div class="form-group search-container">
+            @Html.TextBoxFor(m => m.SearchTerm, new
+       {
+           
+           @class="control-label col-md-5",placeholder = "Nhập tên tài khoản, mật khẩu hoặc vai trò của tài khoản"
+       })
+            <button type="submit" class="tim btn btn-default btn-sm col-md-1" style="background-color:burlywood">Tìm kiếm</button>
+        </div>
+    }
+    <br />
+    <!--Form kết quả tìm kiếm-->
+    @Html.Partial("PVListUser",Model)
+</body>
+</html>
 
-<p class="them">
-    @Html.ActionLink("Thêm tài khoản", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-           Tên tài khoản
-        </th>
-        <th>
-            Mật khẩu
-        </th>
-        <th>
-           Vai trò người dùng
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Password)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.UserRole)
-        </td>
-        <td class="upd">
-            @Html.ActionLink("Sửa", "Edit", new { id=item.IDUser }, new {@class="btn btn-default btn-sm",@style= "background-color:burlywood" }) |
-            @Html.ActionLink("Chi tiết", "Details", new { id=item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" }) |
-            @Html.ActionLink("Xóa", "Delete", new { id=item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
-        </td>
-    </tr>
-}
 
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<head>
+        <style>
+            .btn-cam {
+                background-color: navajowhite;
+            }
+            .upd a{
+                color:white;
+            }
+            .them a{
+                color:orange;
+            }
+            .them a:hover{
+                color:firebrick;
+            }
+        </style>
+    </head>*@
+@*<h2 class="btn-cam">QUẢN LÝ TÀI KHOẢN ADMIN</h2>
+
+    <p class="them">
+        @Html.ActionLink("Thêm tài khoản", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+               Tên tài khoản
+            </th>
+            <th>
+                Mật khẩu
+            </th>
+            <th>
+               Vai trò người dùng
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRole)
+            </td>
+            <td class="upd">
+                @Html.ActionLink("Sửa", "Edit", new { id=item.IDUser }, new {@class="btn btn-default btn-sm",@style= "background-color:burlywood" }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id=item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" }) |
+                @Html.ActionLink("Xóa", "Delete", new { id=item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
+            </td>
+        </tr>
+    }
+
+    </table>*@
