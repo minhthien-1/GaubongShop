@@ -8,30 +8,30 @@ namespace GaubongShop.Models.ViewModel
 {
     public class RegisterVM
     {
-        [Required(ErrorMessage = "Username cannot be blank.")]
+        [Required(ErrorMessage = "Tên đăng nhập không được để trống.")]
         [Display(Name = "Tên đăng nhập")]
         public string Username { get; set; }
-        [Required(ErrorMessage = "Password cannot be blank.")]
+        [Required(ErrorMessage = "Mật khẩu không được để trống.")]
         [DataType(DataType.Password)]
         [Display(Name = "Mật khẩu")]
         public string Password { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Mật khẩu nhập lại không khớp.")]
         [DataType(DataType.Password)]
         [Display(Name = "Xác nhận mật khẩu")]
-        [Compare("Password", ErrorMessage = "Password and Confirm Password cannot match.")]
+        [Compare("Password", ErrorMessage = "Mật khẩu nhập lại không khớp.")]
         public string ConfirmPassword { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Họ tên không được bỏ trống.")]
         [Display(Name = "Họ tên")]
         public string CustomerName { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Số điện thoại không được bỏ trống.")]
         [Display(Name = "Số điện thoại")]
         [DataType(DataType.PhoneNumber)]
         public string CustomerPhone { get; set; }
-        [Required(ErrorMessage = "Email cannot be blank.")]
+        [Required(ErrorMessage = "Email không được bỏ trống.")]
         [Display(Name = "Email")]
         [DataType(DataType.EmailAddress)]
         public string CustomerEmail { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Địa chỉ không được bỏ trống.")]
         [Display(Name = "Địa chỉ")]
         public string CustomerAddress { get; set; }
     }

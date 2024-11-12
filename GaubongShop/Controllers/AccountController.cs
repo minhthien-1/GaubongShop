@@ -27,7 +27,7 @@ namespace GaubongShop.Controllers
 
             if (ModelState.IsValid)
             {
-                Models.User existingUser = db.Users.SingleOrDefault(u => u.Username == model.Username);
+                 Models.User existingUser = db.Users.SingleOrDefault(u => u.Username == model.Username);
 
                 if (existingUser != null)
                 {
@@ -71,17 +71,18 @@ namespace GaubongShop.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = db.Users.Find(model.Username, model.Password);
+                var user = db.Users.SingleOrDefault(u => u.Username == model.Username
+                                                    && u.Password == model.Password);
                 if (user != null)
                 {
                     //Lưu trạng thái vào session
                     Session["Username"] = user.Username;
-                    Session["c"] = user.UserRole;
+                    
 
                     //Lưu thông tin xác thực người dùng vào cookie
-                    FormsAuthentication.SetAuthCookie(user.Username, true);
+                    FormsAuthentication.SetAuthCookie(user.Username, false);
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("TrangChu", "Home");
                 }
                 else
                 {
