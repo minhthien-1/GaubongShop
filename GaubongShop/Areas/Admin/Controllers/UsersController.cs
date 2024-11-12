@@ -7,7 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GaubongShop.Models;
-
+using GaubongShop.Models.ViewModel;
+using PagedList;
 namespace GaubongShop.Areas.Admin.Controllers
 {
     public class UsersController : Controller
@@ -15,9 +16,21 @@ namespace GaubongShop.Areas.Admin.Controllers
         private GauBongStoreEntities db = new GauBongStoreEntities();
 
         // GET: Admin/Users
-        public ActionResult Index()
+        public ActionResult Index(string searchTerm)
         {
-            return View(db.Users.ToList());
+            var model = new UserASearchVm();
+            var users = db.Users.AsQueryable();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                //Tìm kiếm dựa trên từ khóa
+                users = users.Where(p=>
+                p.Username.Contains(searchTerm)|| 
+                p.Password.Contains(searchTerm)||
+                p.UserRole.Contains(searchTerm)
+                );
+            }
+            model.Users=users.ToList();
+            return View(model);
         }
 
         // GET: Admin/Users/Details/5

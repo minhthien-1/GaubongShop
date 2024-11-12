@@ -1,0 +1,64 @@
+﻿@model GaubongShop.Models.ViewModel.UserASearchVm
+<head>
+    <style>
+        .btn-cam {
+            background-color: navajowhite;
+        }
+
+        .upd a {
+            color: white;
+        }
+
+        .them a {
+            color: orange;
+        }
+
+            .them a:hover {
+                color: firebrick;
+            }
+    </style>
+</head>
+<h2 class="btn-cam">QUẢN LÝ TÀI KHOẢN ADMIN</h2>
+
+<p class="them">
+    @Html.ActionLink("Thêm tài khoản", "Create")
+</p>
+@if (Model.Users != null && Model.Users.Any())
+{
+<table class="table">
+    <tr>
+        <th>
+            Tên tài khoản
+        </th>
+        <th>
+            Mật khẩu
+        </th>
+        <th>
+            Vai trò người dùng
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Users)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserRole)
+            </td>
+            <td class="upd">
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" }) |
+                @Html.ActionLink("Xóa", "Delete", new { id = item.IDUser }, new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
+            </td>
+        </tr>
+    }
+</table>
+}
+else
+{<p>Không tìm thấy tài khoản nào phù hợp</p>}
