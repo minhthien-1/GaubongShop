@@ -220,9 +220,9 @@
             </div>
             <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
                 @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
-                        <i class="header_gt_item_b fa-solid fa-bars"></i>
-                        <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
-                    </li>*@
+            <i class="header_gt_item_b fa-solid fa-bars"></i>
+            <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
+        </li>*@
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-bell"></i>
                     <a href="" class=" header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Thông báo</a>
@@ -231,12 +231,19 @@
                     <i class="header_gt_item_b fa-regular fa-circle-question"></i>
                     <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Trợ giúp</a>
                 </li>
-                <li class="header_gt_item gap-1 align-item-center d-flex">
-                    <a href="~/Account/Register" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light ">Đăng ký</a>
+                <li style="padding:0 30px;">
+                    <i class="login-cutomer-icon"></i>
+                    @if (Session["UserName"] != null)
+                    {
+                        <span style="color:orchid"><strong>Xin chào, @Session["UserName"]!</strong></span>
+                        <a href="@Url.Action("Logout", "Account")" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light "><strong>Đăng xuất</strong></a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Login", "Account")" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light "><strong>Đăng nhập</strong></a>
+                    }
                 </li>
-                <li class="header_gt_item gap-1 align-item-center d-flex">
-                    <a href="/Account/Login" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Đăng nhập</a>
-                </li>
+              
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-cart-shopping"></i>
                     <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Giỏ hàng</a>

@@ -65,17 +65,11 @@
         }
 </style>
 
-
-<div>
-    @using (Html.BeginForm("Login", "Account", FormMethod.Post))
-
-    {
-        @Html.AntiForgeryToken()
-    }
+@using (Html.BeginForm("Login", "Account", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
     <div class="form-horizontal">
-        <h2>
-            Đăng nhập
-        </h2>
+        <h2>Đăng nhập</h2>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -92,13 +86,11 @@
                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Đăng nhập" class="btn btn-default" syle=" width: 275px; height: 40px; border: 1px solid #808080; margin: 5px; align-items: center; background-color: cornflowerblue;" />
-                <p>Bạn chưa có tài khoản? <a href="~/Account/Register" style="text-decoration:none; color:deepskyblue;">Đăng ký </a> </p>
+                <input type="submit" value="Đăng nhập" class="btn btn-default" style="width: 275px; height: 40px; border: 1px solid #808080; margin: 5px; align-items: center; background-color: cornflowerblue;" />
+                <p>Bạn chưa có tài khoản? <a href="~/Account/Register" style="text-decoration:none; color:deepskyblue;">Đăng ký </a></p>
             </div>
         </div>
     </div>
-</div>
+}
