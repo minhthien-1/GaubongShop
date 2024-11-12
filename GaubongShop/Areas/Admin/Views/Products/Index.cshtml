@@ -4,55 +4,43 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
-<h2>Index</h2>
+<h1>KHÁCH HÀNG</h1>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Thêm khách hàng mới", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered" style="border-width:thick" border="1" ;>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ProductName)
+            Tên khách hàng
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductDecription)
+            Phone
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductPrice)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ProductImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.CategoryName)
+            Email
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductDecription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProductImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.CategoryName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ProductID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ProductID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ProductID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NameCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneCus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmailCus)
+            </td>
+            <td>
+                @Html.ActionLink("Sửa", "Edit", new { id = item.IDCus }) |
+                @Html.ActionLink("Chi tiết", "Details", new { id = item.IDCus }) |
+                @Html.ActionLink("Xoá", "Delete", new { id = item.IDCus })
+            </td>
+        </tr>
+    }
 
 </table>

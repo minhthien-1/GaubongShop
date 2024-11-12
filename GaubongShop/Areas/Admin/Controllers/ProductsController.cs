@@ -6,8 +6,9 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.UI;
 using GaubongShop.Models;
-
+using PagedList;
 namespace GaubongShop.Areas.Admin.Controllers
 {
     public class ProductsController : Controller
@@ -15,10 +16,39 @@ namespace GaubongShop.Areas.Admin.Controllers
         private GauBongStoreEntities db = new GauBongStoreEntities();
 
         // GET: Admin/Products
-        public ActionResult Index()
+        public ActionResult ProductList(int? category, int? page, string SearchString, double min = double.MinValue, double max = double.MaxValue)
         {
             var products = db.Products.Include(p => p.Category);
-            return View(products.ToList());
+            // Tìm kiếm chuỗi truy vấn theo category
+            if (category == null)
+            {
+                products = db.Products.OrderByDescending(x => x.ProductName);
+            }
+            else
+            {
+                products = db.Products.OrderByDescending(x => x.CategoryID).Where(x => x.CategoryID == category);
+            }
+            // Tìm kiếm chuỗi truy vấn theo NamePro (SearchString)
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = db.Products.OrderByDescending(x => x.CategoryID).Where(s => s.ProductName.Contains(SearchString.Trim()));
+            }
+            // Tìm kiếm chuỗi truy vấn theo đơn giá
+            if (min >= 0 && max > 0)
+            {
+                products = db.Products.OrderByDescending(x => x.ProductPrice).Where(p => (double)p.ProductPrice >= min && (double)p.ProductPrice <= max);
+            }
+            // Khai báo mỗi trang 4 sản phẩm
+            int pageSize = 4;
+            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            // Nếu page = null thì đặt lại page là 1.
+            if (page == null) page = 1;
+
+            // Trả về các product được phân trang theo kích thước và số trang.
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
 
         // GET: Admin/Products/Details/5

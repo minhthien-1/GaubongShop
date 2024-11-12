@@ -114,7 +114,13 @@ namespace GaubongShop.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        // Action PartialViewResult
+        [ChildActionOnly]
+        public PartialViewResult CategoryPartial()
+        {
+            var cateList = db.Categories.ToList();
+            return PartialView(cateList);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
