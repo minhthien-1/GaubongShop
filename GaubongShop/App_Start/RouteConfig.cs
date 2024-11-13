@@ -20,7 +20,13 @@ namespace GaubongShop
                 defaults: new { controller = "Customer", action = "Profile" },
                 namespaces: new[] { "GaubongShop.Controllers" } // Specifies main namespace
             );
-
+            // route cho productlist
+            routes.MapRoute(
+                name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Products", action = "ProductList", id = UrlParameter.Optional },
+                namespaces: new[] { "GaubongShop.Controllers" }
+                );// Specifies main namespace
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

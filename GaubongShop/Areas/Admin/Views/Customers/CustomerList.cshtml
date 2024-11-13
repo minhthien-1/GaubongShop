@@ -1,11 +1,11 @@
-﻿@model PagedList.IPagedList<GaubongShop.Models.Customer>
-@using PagedList.Mvc;
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<GaubongShop.Models.Customer>
 @{
     ViewBag.Title = "CustomerList";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 <div class="container">
-    <h2>Tìm Kiếm</h2>
+    <h2>KHÁCH HÀNG</h2>
     <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
         <!--Vị trí trình bày cho mục 5, tìm sản phẩm theo tên sp và giá-->
         @using (Html.BeginForm("CustomerList", "Customers", FormMethod.Get))
@@ -20,7 +20,6 @@
             </table>
         }
         <!--Kết thúc -->
-
     </div>
     <div class="row">
         @foreach (var pro in Model)
