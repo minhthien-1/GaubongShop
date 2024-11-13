@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GaubongShop.Models.Product>
+
+@{
+    ViewBag.Title = "ProductList";
+    Layout = "~/Views/Shared/TrangChuLayout.cshtml";
+}
+
+<div class="container">
+    <h2>MUA HÀNG</h2>
+    <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
+        <!--Vị trí trình bày cho mục 5, tìm sản phẩm theo tên sp và giá-->
+        <!-- Đoạn thêm -->
+        @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+        {
+            <table>
+                <tr>
+                    <td>
+                        Tên Sản phẩm : <input type="text" name="SearchString" />
+                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
+                    </td>
+                    <td>
+                        Đơn giá từ : <input type="number" name="min" />
+                        --đến : <input type="number" name="max" />
+                        <input type="submit" value="Tìm giá" class="btn btn-warning" />
+                    </td>
+                </tr>
+            </table>
+        }
+        <!--Kết thúc -->
+
+    </div>
+    <div class="row">
+        @foreach (var pro in Model)
+        {
+            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="card-pro">
+                    <p>@Html.DisplayFor(model => pro.ProductID)</p>
+                    <img src="~/Content/images/@pro.ProductImage" width="200" height="250" />
+                    <p>@Html.DisplayFor(model => pro.ProductName)</p>
+                    <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.ProductPrice)</font></p>
+                    <p style="text-align: center;">
+                        <a class="btn btn-info" href="/Products/Details/@pro.ProductID"> Chi tiết </a>
+                        <input type="submit" value="Mua" class="btn btn-danger" />
+                    </p>
+                </div>
+            </div>
+        }
+    </div>
+</div>
