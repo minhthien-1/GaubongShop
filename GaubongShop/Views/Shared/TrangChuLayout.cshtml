@@ -235,7 +235,7 @@
                     <i class="login-cutomer-icon"></i>
                     @if (Session["UserName"] != null)
                     {
-                        <span style="color:orchid"><strong>Xin chào, @Session["UserName"]!</strong></span>
+                        <a href="@Url.Action("TrangChu", "Home")" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light "> <span style="color: orangered"><strong>Xin chào, @Session["UserName"]!</strong></span> </a>
                         <a href="@Url.Action("Logout", "Account")" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light "><strong>Đăng xuất</strong></a>
                     }
                     else
