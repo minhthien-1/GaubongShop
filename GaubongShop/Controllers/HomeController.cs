@@ -20,6 +20,7 @@ namespace GaubongShop.Controllers
         {
             return View();
         }
+      
 
         public ActionResult About()
         {
