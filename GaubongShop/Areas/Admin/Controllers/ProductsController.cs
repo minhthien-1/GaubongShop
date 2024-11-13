@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GaubongShop.Models;
+using GaubongShop.Models.ViewModel;
+using PagedList;
 
 namespace GaubongShop.Areas.Admin.Controllers
 {
