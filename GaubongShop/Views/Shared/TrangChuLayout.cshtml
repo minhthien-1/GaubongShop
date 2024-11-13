@@ -28,6 +28,10 @@
         padding: 10px;
     }
 
+    .header_gt_item gap-1 align-item-center d-flex li a:hover {
+        color: red;
+    }
+
     .container-lg {
         align-items: center;
         display: flex;
@@ -212,7 +216,7 @@
         <nav class="container-lg d-flex justify-content-between">
             <div class="logo">
                 <i class="header_gt_item_b fa-solid fa-gifts"></i>
-                <a href="~/Home/Test" class="cuahang">GAUBONG.COM</a>
+                <a href="~/Home/TrangChu" class="cuahang">GAUBONG.COM</a>
             </div>
             <div class="search">
                 <input class="search_text" placeholder="Nhập sản phẩm cần tìm" />
@@ -220,9 +224,9 @@
             </div>
             <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
                 @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
-            <i class="header_gt_item_b fa-solid fa-bars"></i>
-            <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
-        </li>*@
+                        <i class="header_gt_item_b fa-solid fa-bars"></i>
+                        <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
+                    </li>*@
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-bell"></i>
                     <a href="" class=" header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Thông báo</a>
@@ -243,7 +247,7 @@
                         <a href="@Url.Action("Login", "Account")" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light "><strong>Đăng nhập</strong></a>
                     }
                 </li>
-              
+
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-cart-shopping"></i>
                     <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Giỏ hàng</a>
@@ -334,20 +338,20 @@
                             <div class="footer-static-content">
                                 <ul class="footer-list" style="align-content: space-between; font-family: Arial;">
                                     <li>
-                                        @Html.ActionLink("Điều khoản sử dụng", "dksd", "Customers")
+                                        @Html.ActionLink("Điều khoản sử dụng", "dksd", "Footer")
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Bảo mật thông tin cá nhân", "csbmttcn", "Customers")
+                                        @Html.ActionLink("Bảo mật thông tin cá nhân", "csbmttkh", "Footer")
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Bảo mật thanh toán", "bmtt", "Customers")
+                                        @Html.ActionLink("Bảo mật thanh toán", "bmtt", "Footer")
                                     </li>
                                     <li>
-                                        @Html.ActionLink("Giới thiệu cửa hàng", "gtch", "Customers")
+                                        @Html.ActionLink("Giới thiệu cửa hàng", "gtch", "Footer")
                                     </li>
 
                                     <li>
-                                        @Html.ActionLink("Hệ thống cửa hàng", "htch", "Customers")
+                                        @Html.ActionLink("Hệ thống cửa hàng", "htch", "Footer")
                                     </li>
 
                                 </ul>
@@ -359,17 +363,17 @@
                             </div>
                             <div class="footer-static-content ">
                                 <ul class="footer-list">
-                                    <li>@Html.ActionLink("Chính sác đổi trả hoàn tiền", "csdtht", "Customers")</li>
+
                                     <li>
-                                        @Html.ActionLink("Bảo hành - bồi hoàn", "BaoHanh", "Customers")
+                                        @Html.ActionLink("Bảo hành - bồi hoàn", "BaoHanh", "Footer")
                                     </li>
 
                                     <li>
-                                        @Html.ActionLink("Chính sách vận chuyển", "ShippingPolicy", "Customers")
+                                        @Html.ActionLink("Chính sách vận chuyển", "ShipingPolicy", "Footer")
                                     </li>
 
                                     <li>
-                                        @Html.ActionLink("Khách thân thiết", "KhachThanThiet", "Customers")
+                                        @Html.ActionLink("Khách thân thiết", "KhachHangThanThiet", "Footer")
                                     </li>
                                 </ul>
                             </div>
@@ -382,18 +386,12 @@
                                 <ul class="footer-list">
                                     <li class="first footer_login_link">
                                         <a href="" onclick="return false;">
-                                            Đăng nhập/Tạo mới tài khoản
+                                            @Html.ActionLink("Đăng nhập/Tạo mới tài khoản", "Register", "Account")
                                         </a>
                                     </li>
                                     <li>
-                                    <li>
-                                        @Html.ActionLink("Thay đổi địa chỉ ", "ChangeAddress", "Customers")
-                                    </li>
-
-                                    <li>
                                         <a href="">
-                                            Chi tiết tài
-                                            khoản
+                                            Chi tiết tài khoản
                                         </a>
                                     </li>
                                     <li class="last">
@@ -419,7 +417,7 @@
                             <div class="col-md-4"><em class="fa fa-phone" style="font-size:13px">&nbsp;</em>1900 186118</div>
                         </div>
                     </div>
-                    <div class="hidden-xs" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 25px; height: 80px; margin-right: 16px;">
+                    <div class="hidden-xs" style="display: grid; grid-template-columns: repeat(5, 1fr); grid-gap: 2.7%; height: 80px; margin-right: 16px;">
                         <div class="footer-image-container">
                             <img src="https://cdn0.fahasa.com/media/wysiwyg/Logo-NCC/icon_snappy1.png" width="150">
                         </div>
