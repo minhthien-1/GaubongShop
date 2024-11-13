@@ -300,6 +300,7 @@
     <Content Include="Areas\Admin\Views\Products\PVListProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\CustomerList.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Profile.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
