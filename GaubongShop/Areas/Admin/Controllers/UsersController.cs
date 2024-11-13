@@ -16,7 +16,7 @@ namespace GaubongShop.Areas.Admin.Controllers
         private GauBongStoreEntities db = new GauBongStoreEntities();
 
         // GET: Admin/Users
-        public ActionResult Index(string searchTerm)
+        public ActionResult Index(string searchTerm,int?page)
         {
             var model = new UserASearchVm();
             var users = db.Users.AsQueryable();
@@ -29,7 +29,12 @@ namespace GaubongShop.Areas.Admin.Controllers
                 p.UserRole.Contains(searchTerm)
                 );
             }
-            model.Users=users.ToList();
+            users = users.OrderBy(p => p.Username);
+            //Đoạn code liên quan tới phân trang 
+            //Lấy số trang hiện tại(mặc định là 1)
+            int pageNumber = page ?? 1;
+            int pageSize = 3;
+            model.Users=users.ToPagedList(pageNumber,pageSize);
             return View(model);
         }
 
