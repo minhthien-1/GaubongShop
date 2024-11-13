@@ -136,6 +136,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -199,7 +200,7 @@
     <Content Include="Content\Image\02.jpg" />
     <Content Include="Content\Image\03.jpg" />
     <Content Include="Content\Image\04.jpg" />
-    <Content Include="Content\Image\05.png.png" />
+    <Content Include="Content\Image\05.png" />
     <Content Include="Content\Image\06.jpg" />
     <Content Include="Content\Image\07.jpg" />
     <Content Include="Content\Image\08.jpg" />
@@ -320,6 +321,11 @@
     <Content Include="Views\Home\TrangChu.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

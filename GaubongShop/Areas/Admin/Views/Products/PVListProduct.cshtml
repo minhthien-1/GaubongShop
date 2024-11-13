@@ -2,7 +2,7 @@
 @model GaubongShop.Models.ViewModel.ProductSearchVM
 @{
     ViewBag.Title = "PVListProduct";
-    
+
 }
 <head>
     <style>
@@ -30,19 +30,25 @@
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td><img src="@Html.DisplayFor(modelItem=>product.ProductImage)" /></td>
-                    <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
-                    <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
-                    <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
                     <td>
-                        @Html.ActionLink("Sửa", "Edit", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
-                        @Html.ActionLink("Chi tiết", "Details", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
-                        @Html.ActionLink("Xóa", "Delete", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
-                    </td>
-                </tr>
-            }
+                        @*@Html.DisplayFor(modelItem => product.ProductImage)*@
+                    <img src="~/Content/Image/@product.ProductImage" width="100" />
+                </td>
+                <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
+                <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
+                <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
+                <td>
+                    @Html.ActionLink("Sửa", "Edit", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
+                    @Html.ActionLink("Chi tiết", "Details", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
+                    @Html.ActionLink("Xóa", "Delete", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
+                </td>
+            </tr>
+        }
         </tbody>
     </table>
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.Products, page => Url.Action("Index", new { page, searchTerm = Model.SearchTerm }))
+    </div>
 }
 else
 {
