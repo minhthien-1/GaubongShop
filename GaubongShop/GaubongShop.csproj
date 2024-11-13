@@ -136,6 +136,7 @@
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
@@ -300,7 +301,6 @@
     <Content Include="Areas\Admin\Views\Products\PVListProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\CustomerList.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\Profile.cshtml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
@@ -356,6 +356,7 @@
     <Content Include="Views\Footer\htch.cshtml" />
     <Content Include="Views\Footer\KhachHangThanThiet.cshtml" />
     <Content Include="Views\Footer\ShipingPolicy.cshtml" />
+    <Content Include="Views\Customer\Profile.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

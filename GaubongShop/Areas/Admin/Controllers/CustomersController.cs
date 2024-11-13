@@ -140,27 +140,7 @@ namespace GaubongShop.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-        [Authorize] // Chỉ cho phép người dùng đã đăng nhập truy cập
-        public ActionResult Profile()
-        {
-            // Lấy thông tin khách hàng dựa trên IDUser  của người dùng đã đăng nhập
-            var username = User.Identity.Name;
-            var user = db.Users.FirstOrDefault(u => u.Username == username);
-
-            if (user == null)
-            {
-                return HttpNotFound();
-            }
-
-            var customer = db.Customers.FirstOrDefault(c => c.CustomerName == user.Username); // Hoặc c.Username == username
-
-            if (customer == null)
-            {
-                return HttpNotFound();
-            }
-
-            return View(customer);
-        }
+        
 
         protected override void Dispose(bool disposing)
         {
