@@ -119,7 +119,31 @@ namespace GaubongShop.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
+        // GET: Products
+        public ActionResult ProductList(string SearchString, double min = double.MinValue, double max = double.MaxValue)
+        {
+            var products = db.Products.Include(p => p.Category);
+            // Tìm kiếm chuỗi truy vấn theo category
+            if (category == null)
+            {
+                products = db.Products.OrderByDescending(x => x.NamePro);
+            }
+            else
+            {
+                products = db.Products.OrderByDescending(x => x.CateID).Where(x => x.CateID == category);
+            }
+            // Tìm kiếm chuỗi truy vấn theo NamePro (SearchString)
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = db.Products.OrderByDescending(x => x.CategoryID).Where(s => s.NamePro.Contains(SearchString.Trim()));
+            }
+            // Tìm kiếm chuỗi truy vấn theo đơn giá
+            if (min >= 0 && max > 0)
+            {
+                products = db.Products.OrderByDescending(x => x.ProductPrice).Where(p => (double)p.Price >= min && (double)p.Price <= max);
+            }
+            return View(products.ToList());
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)
