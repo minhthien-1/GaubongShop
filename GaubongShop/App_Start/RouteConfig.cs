@@ -13,11 +13,21 @@ namespace GaubongShop
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            // Route cho trang thông tin khách hàng
+            routes.MapRoute(
+                name: "CustomerProfile",
+                url: "Customer/Profile",
+                defaults: new { controller = "Customer", action = "Profile" },
+                namespaces: new[] { "GaubongShop.Controllers" } // Specifies main namespace
+            );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
-                namespaces: new[] { "GaubongShop.Controllers" }  // Specifies main namespace
+                namespaces: new[] { "GaubongShop.Controllers" } // Specifies main namespace
+
+
             );
         }
     }
