@@ -1,0 +1,26 @@
+﻿@model GaubongShop.Models.ViewModel.ProductDetailVM
+@using PagedList.Mvc;
+
+<link rel="stylesheet" type="text/css" href="~/Content/myStyle/CustomerHome.css" />
+
+<!--Hiển thị danh sách sản phẩm-->
+@if (Model.RealatedProducts != null && Model.RealatedProducts.Any())
+{   <section class="container-fluid featureProd">
+        <h4 style="font-weight:bold">Sản phẩm tương tự</h4>
+        <ul class="feature-container">
+            @foreach (var product in Model.RealatedProducts)
+            {
+                <li class="fproduct-item">
+                    <div>
+                        <a href="@Url.Action("ProductDetails", "Home", new { id = product.ProductID })"></a>
+                        <img src="@Html.DisplayFor(modelItem => product.ProductImage)" />
+                    </div>
+                    <div>
+                        <h5>@Html.DisplayFor(modelItem => product.ProductName)</h5>
+                        <p class="prodSale">@Html.DisplayFor(modelItem => product.ProductPrice)</p>
+                    </div>
+                </li>
+            }
+        </ul>
+    </section>
+}

@@ -228,6 +228,7 @@
     <Content Include="Content\Image\nennho.PNG" />
     <Content Include="Content\Image\register-bg.jpg" />
     <Content Include="Content\Image\tangthiepmienphi.PNG" />
+    <Content Include="Content\myStyle\CustomerHome.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -342,6 +343,9 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Home\ProductDetails.cshtml" />
+    <Content Include="Views\Home\_PVTopProduct.cshtml" />
+    <Content Include="Views\Home\_PVRelatedProduct.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -34,12 +34,12 @@ namespace GaubongShop.Areas.Admin.Controllers
             return View(customers.ToPagedList(pageNumber, pageSize));
         }
 
-        // GET: Admin/Customers
-        //public ActionResult Index()
-        //{
-        //    var customers = db.Customers.Include(c => c.User);
-        //    return View(customers.ToList());
-        //}
+        //GET: Admin/Customers
+        public ActionResult Index()
+        {
+            var customers = db.Customers.Include(c => c.User);
+            return View(customers.ToList());
+        }
 
         // GET: Admin/Customers/Details/5
         public ActionResult Details(int? id)
