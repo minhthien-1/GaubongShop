@@ -7,19 +7,39 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GaubongShop.Models;
-
+using PagedList;
 namespace GaubongShop.Areas.Admin.Controllers
 {
     public class CustomersController : Controller
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
+        public ActionResult CustomerList(string SearchString, int? page)
+        {	// SearchString : tên sản phẩm cần tìm
+            var customers = db.Customers.Include(p => p.CustomerID);
+            //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                customers = customers.Where(s => s.CustomerName.Contains(SearchString));
+            }
+            // Khai báo mỗi trang 4 sản phẩm
+            int pageSize = 4;
+            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            // Nếu page = null thì đặt lại page là 1.
+            if (page == null) page = 1;
+
+            // Trả về các product được phân trang theo kích thước và số trang.
+            return View(customers.ToPagedList(pageNumber, pageSize));
+        }
 
         // GET: Admin/Customers
-        public ActionResult Index()
-        {
-            var customers = db.Customers.Include(c => c.User);
-            return View(customers.ToList());
-        }
+        //public ActionResult Index()
+        //{
+        //    var customers = db.Customers.Include(c => c.User);
+        //    return View(customers.ToList());
+        //}
 
         // GET: Admin/Customers/Details/5
         public ActionResult Details(int? id)
