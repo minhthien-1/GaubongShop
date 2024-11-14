@@ -1,4 +1,6 @@
-﻿@{
+﻿@using PagedList.Mvc;
+@model PagedList.IPagedList<GaubongShop.Models.Product>
+@{
     Layout = "~/Views/Shared/TrangChuLayout.cshtml";
 }
 <style type="text/css">
@@ -23,8 +25,9 @@
     .slider-product-one-content-item-text li a:hover {
         color: red;
     }
-    .slider-product-one-content-item-text li a{
-        color:black;
+
+    .slider-product-one-content-item-text li a {
+        color: black;
     }
 
     .banner-content {
@@ -55,7 +58,7 @@
             margin: 200px 55px;
             justify-content: center;
             align-items: center;
-            display:inline-block;
+            display: inline-block;
         }
 
 
@@ -258,7 +261,7 @@
     <div class="banner-content">
         <h2>Chào mừng bạn đến với web bán gấu bông của chúng tôi</h2>
         <p>Hàng ngàn gấu bông đang chờ bạn đấy</p>
-        <h3>@Html.ActionLink("Bắt đầu mua sắm", "batdaumuasam", "Products")</h3>
+        <h3>@Html.ActionLink("Bắt đầu mua sắm", "ProductList", "Products")</h3>
     </div>
 </div>
 <section id="tienich" class="content-section">
@@ -293,257 +296,257 @@
     </div>
 </section>
 <section class="slider-product-one">
-    <div class="container">
-        <div class="slider-product-one-content">
+        <div class="container">
             <div class="slider-product-one-content">
-                <h1 class="tuade">CÁC SẢN PHẨM NỔI BẬT</h1>
-            </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                   <img src="~/Content/Image/01.jpg" /> 
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>@Html.ActionLink("Vịt tóc xanh(em của xuân tóc đỏ","ProductDetails","Home")</li>
-                            <li><small><del>165.000</del></small><ins>đ</ins> <span id="de">-46%</span></li>
-                            <li><b>89.000<ins>đ</ins></b></li>
-                        </ul>
-                    </div>
+                <div class="slider-product-one-content">
+                    <h1 class="tuade">CÁC SẢN PHẨM NỔI BẬT</h1>
                 </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/02.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Vịt đáng iu đeo túi hàng cao cấp</li>
-                            <li><small><del>95.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
-                            <li><b>64.000<ins>đ</ins></b></li>
-                        </ul>
+                <div class="slider-product-one-content-items">
+                    <div class="slider-product-one-content-item">
+                       <img src="~/Content/Image/01.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>@Html.ActionLink("Vịt tóc xanh(em của xuân tóc đỏ","ProductDetails","Home")</li>
+                                <li><small><del>165.000</del></small><ins>đ</ins> <span id="de">-46%</span></li>
+                                <li><b>89.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/03.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gấu bông Stitch ôm bé vịt siêu dễ thương</li>
-                            <li><small><del>180.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
-                            <li><b>120.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/02.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Vịt đáng iu đeo túi hàng cao cấp</li>
+                                <li><small><del>95.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
+                                <li><b>64.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/04.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Kuriozud siêu dễ thương</li>
-                            <li><small><del>266.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
-                            <li><b>200.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/03.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gấu bông Stitch ôm bé vịt siêu dễ thương</li>
+                                <li><small><del>180.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
+                                <li><b>120.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/04.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Kuriozud siêu dễ thương</li>
+                                <li><small><del>266.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
+                                <li><b>200.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="slider-product-one">
-    <div class="container">
-        <div class="slider-product-one-content">
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
             <div class="slider-product-one-content">
-                <h1 class="tuade">GẤU BÔNG TỐT NGHIỆP</h1>
-            </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/05.png" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Hộp quà gấu bông tốt nghiệp đáng yêu</li>
-                            <li><small><del>300.000</del></small><ins>đ</ins> <span id="de">-17%</span></li>
-                            <li><b>250.000<ins>đ</ins></b></li>
-                        </ul>
-                    </div>
+                <div class="slider-product-one-content">
+                    <h1 class="tuade">GẤU BÔNG TỐT NGHIỆP</h1>
                 </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/06.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gấu bông tốt nghiệp lông xù cực xinh</li>
-                            <li><small><del>195.000</del></small><ins>đ</ins> <span id="de"> -16%</span></li>
-                            <li><b>164.000<ins>đ</ins></b></li>
-                        </ul>
+                <div class="slider-product-one-content-items">
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/05.png" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Hộp quà gấu bông tốt nghiệp đáng yêu</li>
+                                <li><small><del>300.000</del></small><ins>đ</ins> <span id="de">-17%</span></li>
+                                <li><b>250.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/07.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gấu bông tốt nghiệp gói sẵn</li>
-                            <li><small><del>280.000</del></small><ins>đ</ins> <span id="de"> -29%</span></li>
-                            <li><b>200.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/06.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gấu bông tốt nghiệp lông xù cực xinh</li>
+                                <li><small><del>195.000</del></small><ins>đ</ins> <span id="de"> -16%</span></li>
+                                <li><b>164.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/08.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gấu tốt nghiệp lông trơn </li>
-                            <li><small><del>195.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
-                            <li><b>164.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/07.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gấu bông tốt nghiệp gói sẵn</li>
+                                <li><small><del>280.000</del></small><ins>đ</ins> <span id="de"> -29%</span></li>
+                                <li><b>200.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/08.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gấu tốt nghiệp lông trơn </li>
+                                <li><small><del>195.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
+                                <li><b>164.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="slider-product-one">
-    <div class="container">
-        <div class="slider-product-one-content">
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
             <div class="slider-product-one-content">
-                <h1 class="tuade">GẤU BÔNG SINH NHẬT</h1>
-            </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/09.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Cáo nhỏ đáng yêu</li>
-                            <li><small><del>80.000</del></small><ins>đ</ins> <span id="de">-20%</span></li>
-                            <li><b>64.000<ins>đ</ins></b></li>
-                        </ul>
-                    </div>
+                <div class="slider-product-one-content">
+                    <h1 class="tuade">GẤU BÔNG SINH NHẬT</h1>
                 </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/10.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Combo quà tặng gấu teddy</li>
-                            <li><small><del>150.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
-                            <li><b>120.000<ins>đ</ins></b></li>
-                        </ul>
+                <div class="slider-product-one-content-items">
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/09.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Cáo nhỏ đáng yêu</li>
+                                <li><small><del>80.000</del></small><ins>đ</ins> <span id="de">-20%</span></li>
+                                <li><b>64.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/11.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Teddy mũ đỏ siêu xinh</li>
-                            <li><small><del>120.000</del></small><ins>đ</ins> <span id="de"> -17%</span></li>
-                            <li><b>100.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/10.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Combo quà tặng gấu teddy</li>
+                                <li><small><del>150.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
+                                <li><b>120.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/12.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Teddy mũ nâu đáng yêu</li>
-                            <li><small><del>135.000</del></small><ins>đ</ins> <span id="de"> -11%</span></li>
-                            <li><b>120.000<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/11.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Teddy mũ đỏ siêu xinh</li>
+                                <li><small><del>120.000</del></small><ins>đ</ins> <span id="de"> -17%</span></li>
+                                <li><b>100.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/12.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Teddy mũ nâu đáng yêu</li>
+                                <li><small><del>135.000</del></small><ins>đ</ins> <span id="de"> -11%</span></li>
+                                <li><b>120.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="slider-product-one">
-    <div class="container">
-        <div class="slider-product-one-content">
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
             <div class="slider-product-one-content">
-                <h1 class="tuade">GỐI BÔNG & PHỤ KIỆN</h1>
-            </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/13.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gối Ôm Hải Cẩu</li>
-                            <li><small><del>395.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
-                            <li><b>316.000<ins>đ</ins></b></li>
-                        </ul>
-                    </div>
+                <div class="slider-product-one-content">
+                    <h1 class="tuade">GỐI BÔNG & PHỤ KIỆN</h1>
                 </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/14.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Đệm Ngồi Hình Quả Bơ</li>
-                            <li><small><del>365.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
-                            <li><b>292.000<ins>đ</ins></b></li>
-                        </ul>
+                <div class="slider-product-one-content-items">
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/13.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gối Ôm Hải Cẩu</li>
+                                <li><small><del>395.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
+                                <li><b>316.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/15.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Ghế Bông Hình Thú</li>
-                            <li><small><del>425.000</del></small><ins>đ</ins> <span id="de"> -25%</span></li>
-                            <li><b>318.750<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/14.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Đệm Ngồi Hình Quả Bơ</li>
+                                <li><small><del>365.000</del></small><ins>đ</ins> <span id="de"> -20%</span></li>
+                                <li><b>292.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/16.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Gối Cổ Biến Hình</li>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/15.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Ghế Bông Hình Thú</li>
+                                <li><small><del>425.000</del></small><ins>đ</ins> <span id="de"> -25%</span></li>
+                                <li><b>318.750<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/16.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Gối Cổ Biến Hình</li>
 
-                            <li><b>175.000<ins>đ</ins></b></li>
-                        </ul>
+                                <li><b>175.000<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="slider-product-one">
-    <div class="container">
-        <div class="slider-product-one-content">
+    </section>
+    <section class="slider-product-one">
+        <div class="container">
             <div class="slider-product-one-content">
-                <h1 class="tuade">MÓC KHÓA THÚ BÔNG</h1>
-            </div>
-            <div class="slider-product-one-content-items">
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/17.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Móc khóa gấu bông cáo cute</li>
-                            <li><small><del>95.000</del></small><ins>đ</ins> <span id="de">-46%</span></li>
-                            <li><b>43.700<ins>đ</ins></b></li>
-                        </ul>
-                    </div>
+                <div class="slider-product-one-content">
+                    <h1 class="tuade">MÓC KHÓA THÚ BÔNG</h1>
                 </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/18.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Móc khóa gấu mèo bông hottrend</li>
-                            <li><small><del>109.000</del></small><ins>đ</ins> <span id="de"> -36%</span></li>
-                            <li><b>39.240<ins>đ</ins></b></li>
-                        </ul>
+                <div class="slider-product-one-content-items">
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/17.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Móc khóa gấu bông cáo cute</li>
+                                <li><small><del>95.000</del></small><ins>đ</ins> <span id="de">-46%</span></li>
+                                <li><b>43.700<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/19.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Móc khóa mèo lười xinh xắn</li>
-                            <li><small><del>90.000</del></small><ins>đ</ins> <span id="de"> -32%</span></li>
-                            <li><b>61.200<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/18.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Móc khóa gấu mèo bông hottrend</li>
+                                <li><small><del>109.000</del></small><ins>đ</ins> <span id="de"> -36%</span></li>
+                                <li><b>39.240<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="slider-product-one-content-item">
-                    <img src="~/Content/Image/20.jpg" />
-                    <div class="slider-product-one-content-item-text">
-                        <ul>
-                            <li>Móc khóa gấu bông trang trí hộp quà</li>
-                            <li><small><del>70.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
-                            <li><b>46.900<ins>đ</ins></b></li>
-                        </ul>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/19.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Móc khóa mèo lười xinh xắn</li>
+                                <li><small><del>90.000</del></small><ins>đ</ins> <span id="de"> -32%</span></li>
+                                <li><b>61.200<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="slider-product-one-content-item">
+                        <img src="~/Content/Image/20.jpg" />
+                        <div class="slider-product-one-content-item-text">
+                            <ul>
+                                <li>Móc khóa gấu bông trang trí hộp quà</li>
+                                <li><small><del>70.000</del></small><ins>đ</ins> <span id="de"> -33%</span></li>
+                                <li><b>46.900<ins>đ</ins></b></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
