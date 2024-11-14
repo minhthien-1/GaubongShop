@@ -39,7 +39,7 @@ namespace GaubongShop.Controllers
                 products = db.Products.OrderByDescending(x => x.ProductPrice).Where(p => (double)p.ProductPrice >= min && (double)p.ProductPrice <= max);
             }
             // Khai báo mỗi trang 4 sản phẩm
-            int pageSize = 4;
+            int pageSize = 8;
             // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
             // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
             int pageNumber = (page ?? 1);
