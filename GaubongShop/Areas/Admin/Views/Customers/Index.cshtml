@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-
+@{ Html.RenderAction("CustomerList", "Customers");}
 <h1>KHÁCH HÀNG</h1>
 
 <p>

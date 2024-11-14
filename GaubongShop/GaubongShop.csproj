@@ -361,7 +361,6 @@
     <Content Include="Views\Footer\KhachHangThanThiet.cshtml" />
     <Content Include="Views\Footer\ShipingPolicy.cshtml" />
     <Content Include="Views\Customer\Profile.cshtml" />
-    <Content Include="Views\Products\ProductList.cshtml" />
     <Content Include="Views\Categories\CategoryPartial.cshtml" />
     <Content Include="Views\Home\giaohangtannoi.cshtml" />
     <Content Include="Views\Home\batdaumuasam.cshtml" />
@@ -369,6 +368,7 @@
     <Content Include="Views\Home\tangthiepmienphi.cshtml" />
     <Content Include="Views\Home\giatgaubong.cshtml" />
     <Content Include="Views\Home\nennhogau.cshtml" />
+    <Content Include="Views\Products\ProductList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
