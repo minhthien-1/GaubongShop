@@ -22,7 +22,7 @@ namespace GaubongShop
             );
             // route cho productlist
             routes.MapRoute(
-                name: "Default",
+                name: "ProductList",
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Products", action = "ProductList", id = UrlParameter.Optional },
                 namespaces: new[] { "GaubongShop.Controllers" }

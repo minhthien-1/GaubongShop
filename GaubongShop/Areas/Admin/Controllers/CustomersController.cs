@@ -16,7 +16,7 @@ namespace GaubongShop.Areas.Admin.Controllers
         // GET: Products
         public ActionResult CustomerList(int? page, string SearchString)
         {	// SearchString : tên khách hàng cần tìm
-            var customers = db.Customers.Include(c => c.User);
+            var customers = db.Customers.Include(c => c.CustomerName);
             //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
             if (!String.IsNullOrEmpty(SearchString))
             {
