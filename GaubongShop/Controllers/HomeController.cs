@@ -76,8 +76,8 @@ namespace GaubongShop.Controllers
             int pageNumber = page ?? 1;
             int pageSize = model.PageSize; //số sản phẩm mỗi trang
             model.product = pro;
-/*            model.RealatedProducts = (System.Collections.Generic.List<Product>)products.OrderBy(p => p.ProductID).Take(3).ToPagedList(pageNumber, pageSize);*///cần sửa lỗi 
-            //model.TopProducts = products.OrderByDescending(p=>p.OrderDetails.Count()).Take(3).ToPagedList(pageNumber, pageSize);
+            model.RealatedProducts = products.OrderBy(p => p.ProductID).Take(3).ToList();
+            model.TopProducts = products.OrderByDescending(p => p.OrderDetails.Count()).Take(3).ToPagedList(pageNumber, pageSize);
             if (quantity.HasValue)
             {
                 model.quantity = quantity.Value;

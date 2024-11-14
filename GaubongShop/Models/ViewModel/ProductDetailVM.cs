@@ -14,7 +14,7 @@ namespace GaubongShop.Models.ViewModel
         public decimal estimatedValue => quantity * product.ProductPrice;
         //Các thuộc tính hỗ trợ phân trang 
         public int PageNumber { get; set; } //trang hiện tại
-        public int PageSize { get; set; } //số sản phẩm mỗi trang 
+        public int PageSize { get; set; } = 20; //số sản phẩm mỗi trang 
         //Danh sách 3 sản phẩm cùng danh mục
         public List<Product> RealatedProducts { get; set;}
         //Danh sách 3 sản phẩm nổi bật 

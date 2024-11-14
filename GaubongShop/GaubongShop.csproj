@@ -371,11 +371,11 @@
     <Content Include="Views\Home\giatgaubong.cshtml" />
     <Content Include="Views\Home\nennhogau.cshtml" />
     <Content Include="Views\Products\ProductList.cshtml" />
+    <Content Include="Views\Cart\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
-    <Folder Include="Views\Cart\" />
     <Folder Include="Views\RegisterVM\" />
   </ItemGroup>
   <ItemGroup>
