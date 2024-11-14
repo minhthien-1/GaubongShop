@@ -20,7 +20,30 @@ namespace GaubongShop.Controllers
         {
             return View();
         }
-
+        public ActionResult giaohangtannoi()
+        {
+            return View();
+        }
+        public ActionResult bocquagiare()
+        {
+            return View();
+        }
+        public ActionResult tangthiepmienphi()
+        {
+            return View();
+        }
+        public ActionResult giatgaubong()
+        {
+            return View();
+        }
+        public ActionResult nennhogau()
+        {
+            return View();
+        }
+        public ActionResult batdaumuasam()
+        {
+            return View();
+        }
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

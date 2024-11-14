@@ -8,11 +8,12 @@
     <meta name="=viewport" content="width-device-width" />
     <title>Search</title>
     <style>
-        .search-container, .order-container {
-            padding-top: 20px;
-            display: flex;
-            justify-content: center;
+        .bg-cam, body {
+            background-color: navajowhite;
             align-items: center;
+        }
+        .upd a {
+            color: white;
         }
     </style>
 </head>
@@ -20,7 +21,7 @@
     <!--tìm kiếm-->
     @using (Html.BeginForm("Index", "Products", FormMethod.Get))
     {
-        <div class="form-group search-container">
+        <div class="bg-cam">
             @Html.TextBoxFor(m => m.SearchTerm, new
             {
                 @class = "form-control",
@@ -29,7 +30,7 @@
             <button type="submit" class="t=btn btn-primary">Tìm kiếm</button>
         </div>
         <!--Tùy chọn sắp xếp -->
-        <div class="from-group order-container">
+        <div class="upd">
             Sắp xếp theo:
             @Html.ActionLink("Tên tăng dần", "Index", "Products", new { sortOrder = "name_asc", searchTerm = Model.SearchTerm }, null) |
             @Html.ActionLink("Tên giảm dần", "Index", "Products", new { sortOrder = "name_desc", searchTerm = Model.SearchTerm }, null)|
