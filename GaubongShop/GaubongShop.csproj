@@ -259,8 +259,6 @@
     </Content>
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
-    <Content Include="Models\ViewPage1.cshtml" />
-    <Content Include="Models\ViewPage2.cshtml" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -307,6 +305,8 @@
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\CustomerList.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
+    <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
     <Content Include="Scripts\jquery-3.7.1.min.js" />
