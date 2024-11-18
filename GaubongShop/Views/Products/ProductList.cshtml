@@ -16,7 +16,7 @@
                 <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.ProductPrice)</font></p>
                 <p style="text-align: center;">
                     <a class="btn btn-info" href="/Home/ProductDetails/@pro.ProductID"> Chi tiết </a>
-                    <a href="~/ShoppingCart/AddToCart/@pro.ProductID" class="btn btn-danger"> Mua </a>
+                    <a href="/Cart/Index/@pro.ProductID" class="btn btn-danger"> Mua </a>
 
                 </p>
             </div>
