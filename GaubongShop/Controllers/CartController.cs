@@ -11,6 +11,15 @@ namespace GaubongShop.Controllers
     public class CartController : Controller
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
+
+        public ActionResult ShowCart()
+        {
+            if (Session["Cart"] == null)
+                return View("ShowCart");
+            Cart _cart = Session["Cart"] as Cart;
+            return View(_cart);
+        }
+
         //Hàm lấy dịch vụ giỏ hàng
         private CartService GetCartService()
         {
