@@ -16,12 +16,9 @@ namespace GaubongShop.Areas.Admin.Controllers
         // GET: Products
         public ActionResult CustomerList(int? page, string SearchString)
         {	// SearchString : tên khách hàng cần tìm
-            var customers = db.Customers.Include(c => c.CustomerName);
+            var customers = db.Customers.Include(c => c.User)
+                .OrderBy(c => c.CustomerID);
             //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
-            if (!String.IsNullOrEmpty(SearchString))
-            {
-                customers = customers.Where(s => s.CustomerName.Contains(SearchString));
-            }
             // Khai báo mỗi trang 4 khach hang
             int pageSize = 4;
             // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
