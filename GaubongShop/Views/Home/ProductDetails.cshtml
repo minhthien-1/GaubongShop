@@ -3,9 +3,9 @@
     ViewBag.Title = "ProductDetails";
     Layout = "~/Views/Shared/TrangChuLayout.cshtml";
 }
-@*<head>
+<head>
     <style>
-        .pro{
+        /*.pro{
             padding:50px 10px 50px 10px;
             background-color:ghostwhite;
         }
@@ -27,9 +27,10 @@
         }
         .pro-sale{
             font-weight:lighter;
-        }
-    </style>*@
-@*</head>*@
+        }*/
+
+    </style>
+</head>
 <div class="container-fluid pro">
     <div class="div-horizontal">
         @*Khối bên trái*@
@@ -40,9 +41,9 @@
         <div class="col-md-5 pro-section">
             @*Phần thông tin sản phẩm*@
             <div>
-                <h4><strong>@Html.DisplayNameFor(model => model.product.ProductName)</strong></h4>
+                <h4><strong>@Html.DisplayFor(model => model.product.ProductName)</strong></h4>
                 <p class="pro-sale">Đã bán: &nbsp;@Model.product.OrderDetails.Count</p>
-                <p class="pro-price">@Model.product.ProductPrice.ToString("C")</p>
+                <p class="pro-price">@Model.product.ProductPrice.ToString("N0")</p>
                 <p>Gấu bông:&nbsp;@Model.product.Category.CategoryName</p>
                 <hr />
                 <h5><strong>Mô tả</strong></h5>
@@ -56,10 +57,10 @@
                 <h4><strong>Số lượng</strong></h4>
                 <p>@Html.TextBoxFor(model=>model.quantity, new { @class = "form-control", @type = "number", @min = 1 })</p>
                 <h4><strong>Tạm tính</strong></h4>
-                <p>@Model.estimatedValue.ToString("NO")</p>
+                <p>@Model.estimatedValue.ToString("N0")</p>
                 <p>
                     @Html.ActionLink("Thêm vào giỏ hàng","AddToCart","Cart", new {id=Model.product.ProductID, quantity = Model.quantity},
-                   new {@class="btn btn-info"})
+                    new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
                 </p>
             }
             <hr />

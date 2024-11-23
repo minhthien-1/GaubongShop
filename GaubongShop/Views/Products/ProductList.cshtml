@@ -13,10 +13,11 @@
                 <p>@Html.DisplayFor(model => pro.ProductID)</p>
                 <img src="~/Content/Image/@pro.ProductImage" width="250" height="275" />
                 <p>@Html.DisplayFor(model => pro.ProductName)</p>
-                <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.ProductPrice)</font></p>
+                <p>Đơn giá : <font color="red">@pro.ProductPrice.ToString("N0")</font></p>
+               
                 <p style="text-align: center;">
                     <a class="btn btn-info" href="/Home/ProductDetails/@pro.ProductID"> Chi tiết </a>
-                    <a href="/Cart/Index/@pro.ProductID" class="btn btn-danger"> Mua </a>
+                    @*<a href="/Cart/Index/@pro.ProductID" class="btn btn-danger"> Mua </a>*@
 
                 </p>
             </div>
