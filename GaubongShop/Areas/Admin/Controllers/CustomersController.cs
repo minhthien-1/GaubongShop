@@ -24,7 +24,6 @@ namespace GaubongShop.Areas.Admin.Controllers
             }
             // Khai báo mỗi trang 4 khach hang
             int pageSize = 4;
-            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
             // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
             int pageNumber = (page ?? 1);
 
