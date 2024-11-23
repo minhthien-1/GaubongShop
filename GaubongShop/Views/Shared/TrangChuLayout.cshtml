@@ -451,8 +451,18 @@
             </div>
         </footer>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <div class="container-fluid body-content">
+        <div class="row">
+            <div class="col-md-2" style="background-color:lightgrey; min-height: 600px;">
+                @*// vị trí để dành cho Partial View (mục 7)*@
+            </div>
+            <div class="col-md-10" id="div-content">
+                @RenderBody()
+            </div>
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </div>
 </body>
 </html>

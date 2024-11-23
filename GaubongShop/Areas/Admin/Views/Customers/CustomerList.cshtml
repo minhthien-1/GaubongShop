@@ -7,19 +7,14 @@
 <div class="container">
     <h2>KHÁCH HÀNG</h2>
     <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
-        <!--Vị trí trình bày cho mục 5, tìm sản phẩm theo tên sp và giá-->
+        @*// tìm kiếm*@
         @using (Html.BeginForm("CustomerList", "Customers", FormMethod.Get))
         {
-            <table>
-                <tr>
-                    <td>
-                        Tên khách hàng : <input type="text" name="SearchString" />
-                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
-                    </td>
-                </tr>
-            </table>
+            <form method="get" asp-action="Customers">
+                <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" placeholder="Tìm kiếm khách hàng" />
+                <button type="submit">Tìm kiếm</button>
+            </form>
         }
-        <!--Kết thúc -->
     </div>
     <div class="row">
         @foreach (var pro in Model)
@@ -39,8 +34,14 @@
         }
     </div>
 </div>
-<!-- Thêm đoạn mã để hiển thị số trang và số trang hiện tại -->
-Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
-<!--Control PagedListPager: mô tả mô hình với số trang là liên kết với tham số "Index" và tham số page-->
-@Html.PagedListPager(Model, page => Url.Action("CustomerList", new { page }))
-<!-- Kết thúc -->
+@*// phân trang*@
+<div>
+    @if (ViewBag.CurrentPage > 1)
+    {
+        <a href="@Url.Action("Customers", new { page = ViewBag.CurrentPage - 1, searchTerm = ViewBag.SearchTerm })">Trang trước</a>
+    }
+    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
+    {
+        <a href="@Url.Action("Customers", new { page = ViewBag.CurrentPage + 1, searchTerm = ViewBag.SearchTerm })">Trang sau</a>
+    }
+</div>
