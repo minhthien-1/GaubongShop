@@ -1,11 +1,14 @@
-﻿using System.Web.UI;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GaubongShop.Models;
 using GaubongShop.Models.ViewModel;
 using PagedList;
-using System.Linq;
 
 namespace GaubongShop.Controllers
 {
@@ -16,9 +19,39 @@ namespace GaubongShop.Controllers
         {
             return View();
         }
-        public ActionResult TrangChu()
+        public ActionResult TrangChu(int? category, int? page, string SearchString, double min = double.MinValue, double max = double.MaxValue)
         {
-            return View();
+            var products = db.Products.Include(p => p.Category);
+            // Tìm kiếm chuỗi truy vấn theo category
+            if (category == null)
+            {
+                products = db.Products.OrderByDescending(x => x.ProductName);
+            }
+            else
+            {
+                products = db.Products.OrderByDescending(x => x.CategoryID).Where(x => x.CategoryID == category);
+            }
+            // Tìm kiếm chuỗi truy vấn theo NamePro (SearchString)
+            if (!String.IsNullOrEmpty(SearchString))
+            {
+                products = db.Products.OrderByDescending(x => x.CategoryID).Where(s => s.ProductName.Contains(SearchString.Trim()));
+            }
+            // Tìm kiếm chuỗi truy vấn theo đơn giá
+            if (min >= 0 && max > 0)
+            {
+                products = db.Products.OrderByDescending(x => x.ProductPrice).Where(p => (double)p.ProductPrice >= min && (double)p.ProductPrice <= max);
+            }
+            // Khai báo mỗi trang 4 sản phẩm
+            int pageSize = 4;
+            // Toán tử ?? trong C# mô tả nếu page khác null thì lấy giá trị page, còn
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
+
+            // Nếu page = null thì đặt lại page là 1.
+            if (page == null) page = 1;
+
+            // Trả về các product được phân trang theo kích thước và số trang.
+            return View(products.ToPagedList(pageNumber, pageSize));
         }
         public ActionResult giaohangtannoi()
         {
