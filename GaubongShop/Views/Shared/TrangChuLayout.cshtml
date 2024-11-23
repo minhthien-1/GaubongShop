@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GaubongShop.Models.Product>
+﻿@*@model IEnumerable<GaubongShop.Models.Product>*@
 <style type="text/css">
     html {
         font-size: 14px;
@@ -221,7 +221,7 @@
             </div>
             <div>
                   <div class="container">
-      <div class="search" style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
+      @*<div class="search" style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
           @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
           {
               <table>
@@ -252,7 +252,9 @@
                     }
                  </div>
             </div>
-            </div>
+            </div>*@
+                     </div>
+                </div>
             <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
                 @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
                         <i class="header_gt_item_b fa-solid fa-bars"></i>
@@ -281,7 +283,7 @@
 
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-cart-shopping"></i>
-                    <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Giỏ hàng</a>
+                    @Html.ActionLink("Gio hang", "Index", "Cart")
                 </li>
             </ul>
         </nav>
