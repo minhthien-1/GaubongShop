@@ -8,7 +8,6 @@
 <div class="container">
     <h2>MUA HÀNG</h2>
     <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
-        <!--Vị trí trình bày cho mục 5, tìm sản phẩm theo tên sp và giá-->
         <!-- Đoạn thêm -->
         @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
         {
@@ -41,6 +40,9 @@
                         <a class="btn btn-info" href="/Products/Details/@pro.ProductID"> Chi tiết </a>
                         <input type="submit" value="Mua" class="btn btn-danger" />
                     </p>
+                </div>
+                <div>
+                    @Html.Partial("PVListProduct", Model)
                 </div>
             </div>
         }
