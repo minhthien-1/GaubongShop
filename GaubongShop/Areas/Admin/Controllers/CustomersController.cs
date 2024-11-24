@@ -15,25 +15,31 @@ namespace GaubongShop.Areas.Admin.Controllers
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
         // GET: Products
-        public ActionResult CustomerList(int? page, string searchTerm)
+        public ActionResult CustomerList(int? customer ,int? page, string searchTerm)
         {	// SearchString : tên khách hàng cần tìm
-            var model = new CustomerSearchVM();
-            var customers = db.Customers.Include(c => c.CustomerName);
+            var customers = db.Customers.Include(p => p.CustomerName);
+            if (customer == null)
+            {
+                customers = db.Customers.OrderByDescending(x => x.CustomerName);
+            }
+            else
+            {
+                customers = db.Customers.OrderByDescending(x => x.CustomerID).Where(x => x.CustomerID == customer);
+            }
+            // Tìm kiếm chuỗi truy vấn theo NamePro (SearchString)
             if (!String.IsNullOrEmpty(searchTerm))
             {
-                model.SearchTerm = searchTerm;
-                customers = customers.Where(s => s.CustomerName.Contains(searchTerm));
+                customers = db.Customers.Where(s => s.CustomerName.Contains(searchTerm.Trim()));
             }
-            //// Khai báo mỗi trang 4 khach hang
-            //int pageSize = 4;
-            //// nếu page = null thì lấy giá trị 1 cho biến pageNumber.
-            int pageNumber = page ?? 1;
+            // Khai báo mỗi trang 4 khách hàng
             int pageSize = 4;
+            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = (page ?? 1);
             // Nếu page = null thì đặt lại page là 1.
-            model.PageNumber = pageNumber;
-            model.PageSize = pageSize;
+            if (page == null) page = 1;
+
             // Trả về các product được phân trang theo kích thước và số trang.
-            return View(model);
+            return View(customers.ToPagedList(pageNumber, pageSize));
         }
         //GET: Admin/Customers
         public ActionResult Index()

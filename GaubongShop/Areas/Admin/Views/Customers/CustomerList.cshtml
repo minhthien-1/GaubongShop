@@ -10,10 +10,14 @@
         @*// tìm kiếm*@
         @using (Html.BeginForm("CustomerList", "Customers", FormMethod.Get))
         {
-            <form method="get" asp-action="Customers">
-                <input type="text" name="searchTerm" value="@ViewBag.SearchTerm" placeholder="Tìm kiếm khách hàng" />
-                <button type="submit">Tìm kiếm</button>
-            </form>
+            <table>
+                <tr>
+                    <td>
+                        Tên Khách Hàng : <input type="text" name="searchTerm" />
+                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
+                    </td>
+                </tr>
+            </table>
         }
     </div>
     <div class="row">
@@ -35,13 +39,5 @@
     </div>
 </div>
 @*// phân trang*@
-<div>
-    @if (ViewBag.CurrentPage > 1)
-    {
-        <a href="@Url.Action("Customers", new { page = ViewBag.CurrentPage - 1, searchTerm = ViewBag.SearchTerm })">Trang trước</a>
-    }
-    @if (ViewBag.CurrentPage < ViewBag.TotalPages)
-    {
-        <a href="@Url.Action("Customers", new { page = ViewBag.CurrentPage + 1, searchTerm = ViewBag.SearchTerm })">Trang sau</a>
-    }
-</div>
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+@Html.PagedListPager(Model, page => Url.Action("CustomerList", new { page }))
