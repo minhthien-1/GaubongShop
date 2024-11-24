@@ -25,6 +25,7 @@ namespace GaubongShop.Areas.Admin.Controllers
                 customers = customers.Where(c => c.CustomerName.Contains(searchTerm));
             }
             int pageNumber = page ?? 1;
+            customers = customers.OrderBy(c => c.CustomerName);
             int pageSize = 5;
             model.Customers = customers.ToPagedList(pageNumber, pageSize);
             return View(model);
