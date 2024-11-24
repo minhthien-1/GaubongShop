@@ -1,0 +1,50 @@
+﻿@model GaubongShop.Models.ViewModel.SearchCustomerVM
+@using PagedList.Mvc;
+@*hiển thị danh sách khách hàng*@
+@if (Model.Customers != null && Model.Customers.Any())
+{
+    <h2 class="bg-success">Danh Sách Khách Hàng</h2>
+    <table class="table table-bordered" style="border-width:thick" border="1">
+        <tr>
+            <th>
+                Tên khách hàng
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Email
+            </th>
+            <th></th>
+        </tr>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => customer.CustomerName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => customer.CustomerPhone)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => customer.CustomerEmail)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = customer.CustomerID }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = customer.CustomerID }) |
+                        @Html.ActionLink("Xoá", "Delete", new { id = customer.CustomerID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    //hiển thị phân trang
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.Customers, page => Url.Action("Index", new { page, searchTerm = Model.SearchTerm, }))
+    </div>
+}
+else
+{
+    <p>Không tìm thấy khách hàng phù hợp</p>
+}
