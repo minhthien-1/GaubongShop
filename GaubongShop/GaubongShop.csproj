@@ -135,7 +135,6 @@
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
     <Compile Include="Areas\Admin\Controllers\TaiKhoanController.cs" />
     <Compile Include="Areas\Admin\Controllers\UsersController.cs" />
-    <Compile Include="Areas\Admin\Views\Customers\CustomerSearchVM.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
@@ -187,6 +186,7 @@
     <Compile Include="Models\ViewModel\ProductDetailVM.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
     <Compile Include="Models\ViewModel\RegisterVM.cs" />
+    <Compile Include="Models\ViewModel\SearchCustomerVM.cs" />
     <Compile Include="Models\ViewModel\UserASearchVm.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -327,6 +327,7 @@
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\CustomerList.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\PVListCustomer.cshtml" />
     <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />

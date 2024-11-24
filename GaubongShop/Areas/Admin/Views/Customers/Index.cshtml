@@ -1,47 +1,36 @@
-﻿@model IEnumerable<GaubongShop.Models.Customer>
-
+﻿@using PagedList.Mvc;
+@model GaubongShop.Models.ViewModel.SearchCustomerVM
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-@{ Html.RenderAction("CustomerList", "Customers");}
-<h1>KHÁCH HÀNG</h1>
-
-<p>
-    @Html.ActionLink("Thêm khách hàng mới", "Create")
-</p>
-<table class="table table-bordered" style="border-width:thick" border="1" ;>
-    <tr>
-        <th>
-            Tên khách hàng
-        </th>
-        <th>
-            Phone
-        </th>
-        <th>
-            Email
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+<html>
+<head>
+    <meta name="viewport" content="width = device-width" />
+    <title>Tìm Kiếm</title>
+    <style>
+        .search-container {
+            padding-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>KHÁCH HÀNG</h2>
+    @*// tìm kiếm*@
+    @using (Html.BeginForm("Index", "Customers", FormMethod.Get))
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerPhone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CustomerEmail)
-            </td>
-            <td>
-                @Html.ActionLink("Sửa", "Edit", new { id = item.CustomerID }) |
-                @Html.ActionLink("Chi tiết", "Details", new { id = item.CustomerID }) |
-                @Html.ActionLink("Xoá", "Delete", new { id = item.CustomerID })
-            </td>
-        </tr>
+        <div class="form-group search-container">
+            @Html.TextBoxFor(m => m.SearchTerm, new
+            {
+                @class = "form-control",
+                placeholder = "Nhập tên khách hàng"
+            })
+            <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+        </div>
     }
-
-</table>
+    @Html.Partial("PVListCustomer", Model)
+</body>
+</html>
