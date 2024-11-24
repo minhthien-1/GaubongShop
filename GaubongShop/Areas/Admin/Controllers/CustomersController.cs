@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using GaubongShop.Areas.Admin.Views.Customers;
 using GaubongShop.Models;
 using PagedList;
 namespace GaubongShop.Areas.Admin.Controllers
@@ -14,23 +15,26 @@ namespace GaubongShop.Areas.Admin.Controllers
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
         // GET: Products
-        public ActionResult CustomerList(int? page, string SearchString)
+        public ActionResult CustomerList(int? page, string searchTerm)
         {	// SearchString : tên khách hàng cần tìm
-            var customers = db.Customers.Include(c => c.User)
-                .OrderBy(c => c.CustomerID);
-            //Tìm kiếm chuỗi truy vấn theo NamePro, nếu chuỗi truy vấn SearchString khác rỗng, null
-            // Khai báo mỗi trang 4 khach hang
+            var model = new CustomerSearchVM();
+            var customers = db.Customers.Include(c => c.CustomerName);
+            if (!String.IsNullOrEmpty(searchTerm))
+            {
+                model.SearchTerm = searchTerm;
+                customers = customers.Where(s => s.CustomerName.Contains(searchTerm));
+            }
+            //// Khai báo mỗi trang 4 khach hang
+            //int pageSize = 4;
+            //// nếu page = null thì lấy giá trị 1 cho biến pageNumber.
+            int pageNumber = page ?? 1;
             int pageSize = 4;
-            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
-            int pageNumber = (page ?? 1);
-
             // Nếu page = null thì đặt lại page là 1.
-            if (page == null) page = 1;
-
+            model.PageNumber = pageNumber;
+            model.PageSize = pageSize;
             // Trả về các product được phân trang theo kích thước và số trang.
-            return View(customers.ToPagedList(pageNumber, pageSize));
+            return View(model);
         }
-
         //GET: Admin/Customers
         public ActionResult Index()
         {
@@ -136,9 +140,6 @@ namespace GaubongShop.Areas.Admin.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
-
-        
-
         protected override void Dispose(bool disposing)
         {
             if (disposing)
