@@ -1,5 +1,4 @@
-﻿@model IEnumerable<GaubongShop.Models.Product>
-<style type="text/css">
+﻿<style type="text/css">
     html {
         font-size: 14px;
         font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -218,23 +217,7 @@
                 <i class="header_gt_item_b fa-solid fa-gifts"></i>
                 <a href="~/Home/TrangChu" class="cuahang">GAUBONG.COM</a>
             </div>
-            <div>
-                <div class="container">
-                    <div class="search" style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
-                        @using (Html.BeginForm("TrangChu", "Home", FormMethod.Get))
-                        {
-                            <table>
-                                <tr>
-                                    <td>
-                                        Tên Sản phẩm : <input type="text" name="SearchString" />
-                                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
-                                    </td>
-                                </tr>
-                            </table>
-                        }
-                    </div>
-                </div>
-            </div>
+
             <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
                 @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-bars"></i>
@@ -267,7 +250,6 @@
                 </li>
             </ul>
         </nav>
-        @Html.Partial("ProductListPV", Model)
     </header>
     <div class="container body-content">
         @RenderBody()
