@@ -41,7 +41,7 @@
 </table>
     //hiển thị phân trang
     <div class="pagination-container">
-        @Html.PagedListPager(Model.Customers, page => Url.Action("CustomerList", new { page, searchTerm = Model.SearchTerm,}))
+        @Html.PagedListPager(Model.Customers, page => Url.Action("Index", new { page, searchTerm = Model.SearchTerm,}))
     </div>
 }
 else

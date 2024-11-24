@@ -17,7 +17,7 @@ namespace GaubongShop.Areas.Admin.Controllers
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
         //GET: Admin/Customers
-        public ActionResult CustomerList(string searchTerm, int? page)
+        public ActionResult Index(string searchTerm, int? page)
         {
             var model = new SearchCustomerVM();
             var customers = db.Customers.AsQueryable();

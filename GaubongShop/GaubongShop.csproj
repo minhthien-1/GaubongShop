@@ -325,7 +325,6 @@
     <Content Include="Areas\Admin\Views\Users\PVListUser.cshtml" />
     <Content Include="Areas\Admin\Views\Products\PVListProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
-    <Content Include="Areas\Admin\Views\Customers\CustomerList.cshtml" />
     <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\PVListCustomer.cshtml" />
     <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - FTP.pubxml" />
