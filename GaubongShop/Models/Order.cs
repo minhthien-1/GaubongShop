@@ -26,6 +26,7 @@ namespace GaubongShop.Models
         public decimal TotalAmount { get; set; }
         public string PaymentStatus { get; set; }
         public string ShippingAddress { get; set; }
+        public string ShippingMethod { get; set; }
         public string DeliveryMethod { get; set; }
         public string PaymentMethod { get; set; }
     
