@@ -1,11 +1,10 @@
 ﻿@model IEnumerable<GaubongShop.Models.Customer>
-
 @{
     ViewBag.Title = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 @{ Html.RenderAction("CustomerList", "Customers");}
-<h1>KHÁCH HÀNG</h1>
+<h1>DANH SÁCH KHÁCH HÀNG</h1>
 
 <p>
     @Html.ActionLink("Thêm khách hàng mới", "Create")
@@ -24,7 +23,7 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
+    @foreach (var customer in Model.Cust)
     {
         <tr>
             <td>
@@ -43,5 +42,8 @@
             </td>
         </tr>
     }
-
 </table>
+@*hiển thị phân trang*@
+<div class="pagination-container">
+    @Html.PagedListPager(Model.
+</div>

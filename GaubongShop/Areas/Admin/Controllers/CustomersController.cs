@@ -6,48 +6,30 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using GaubongShop.Areas.Admin.Views.Customers;
+using GaubongShop.Areas.Admin.Controllers;
 using GaubongShop.Models;
 using PagedList;
+using GaubongShop.Models.ViewModel;
+using PagedList.Mvc;
 namespace GaubongShop.Areas.Admin.Controllers
 {
     public class CustomersController : Controller
     {
         private GauBongStoreEntities db = new GauBongStoreEntities();
-        // GET: Products
-        public ActionResult CustomerList(int? customer ,int? page, string searchTerm)
-        {	// SearchString : tên khách hàng cần tìm
-            var customers = db.Customers.Include(p => p.CustomerName);
-            if (customer == null)
-            {
-                customers = db.Customers.OrderByDescending(x => x.CustomerName);
-            }
-            else
-            {
-                customers = db.Customers.OrderByDescending(x => x.CustomerID).Where(x => x.CustomerID == customer);
-            }
-            // Tìm kiếm chuỗi truy vấn theo NamePro (SearchString)
-            if (!String.IsNullOrEmpty(searchTerm))
-            {
-                customers = db.Customers.Where(s => s.CustomerName.Contains(searchTerm.Trim()));
-            }
-            // Khai báo mỗi trang 4 khách hàng
-            int pageSize = 4;
-            // nếu page = null thì lấy giá trị 1 cho biến pageNumber.
-            int pageNumber = (page ?? 1);
-            // Nếu page = null thì đặt lại page là 1.
-            if (page == null) page = 1;
-
-            // Trả về các product được phân trang theo kích thước và số trang.
-            return View(customers.ToPagedList(pageNumber, pageSize));
-        }
         //GET: Admin/Customers
-        public ActionResult Index()
+        public ActionResult CustomerList(string searchTerm, int? page)
         {
-            var customers = db.Customers.Include(c => c.User);
-            return View(customers.ToList());
+            var model = new SearchCustomerVM();
+            var customers = db.Customers.AsQueryable();
+            if(!string.IsNullOrEmpty(searchTerm))
+            {
+                customers = customers.Where(c => c.CustomerName.Contains(searchTerm));
+            }
+            int pageNumber = page ?? 1;
+            int pageSize = 5;
+            model.Customers = customers.ToPagedList(pageNumber, pageSize);
+            return View(model);
         }
-
         // GET: Admin/Customers/Details/5
         public ActionResult Details(int? id)
         {
