@@ -47,7 +47,7 @@
         </tbody>
     </table>
     <div class="pagination-container">
-        @Html.PagedListPager(Model.Products, page => Url.Action("Index", new { page, searchTerm = Model.SearchTerm }))
+        @Html.PagedListPager(Model.Products, page => Url.Action("ProductList", new { page, searchTerm = Model.SearchTerm }))
     </div>
 }
 else
