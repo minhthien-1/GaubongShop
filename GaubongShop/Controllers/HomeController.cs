@@ -95,6 +95,10 @@ namespace GaubongShop.Controllers
         {
             return View();
         }
+        public ActionResult Index()
+        {
+            return View();
+        }
         public ActionResult nennhogau()
         {
             return View();
