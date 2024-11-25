@@ -19,7 +19,7 @@ namespace GaubongShop.Controllers
         private GauBongStoreEntities db = new GauBongStoreEntities();
 
         // GET: Products
-        public ActionResult ProductList(string searchTerm, string sortOrder, int? page)
+        public ActionResult ProductList(string searchTerm, string sortOrder, int? page, decimal? minPrice, decimal? maxPrice)
         {
             var model = new ProductSearchVM();
             var products = db.Products.AsQueryable();
@@ -31,6 +31,17 @@ namespace GaubongShop.Controllers
                 p.ProductName.Contains(searchTerm) ||
                 p.ProductDecription.Contains(searchTerm) ||
                 p.Category.CategoryName.Contains(searchTerm));
+            }
+            if (minPrice.HasValue)
+            {
+                model.MinPrice = minPrice.Value;
+                products = products.Where(p => p.ProductPrice >= minPrice.Value);
+            }
+            if (maxPrice.HasValue)
+            {
+                model.MaxPrice = maxPrice.Value;
+                products = products.Where(p => p.ProductPrice <= maxPrice.Value);
+
             }
             //Áp dụng sắp xếp dựa trên lựa chọn của người dùng
             switch (sortOrder)
