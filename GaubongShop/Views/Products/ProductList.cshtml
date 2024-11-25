@@ -1,50 +1,80 @@
-﻿@model IEnumerable<GaubongShop.Models.Product>
-
+﻿@using PagedList.Mvc;
+@model GaubongShop.Models.ViewModel.ProductSearchVM
 @{
-    ViewBag.Title = "ProductList";
-    Layout = "~/Views/Shared/TrangChuLayout.cshtml";
-}
+    ViewBag.Title = "PVListProduct";
 
-<div class="container">
-    <h2>MUA HÀNG</h2>
-    <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
-        <!-- Đoạn thêm -->
-        @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
-        {
-            <table>
+}
+<head>
+    <style>
+        img {
+            height: 150px;
+            max-width: 150px;
+        }
+    </style>
+</head>
+<div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
+    <!-- Đoạn thêm -->
+    @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+    {
+        <table>
+            <tr>
+                <td>
+                    Tên Sản phẩm : <input type="text" name="SearchString" />
+                    <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
+                </td>
+                <td>
+                    Đơn giá từ : <input type="number" name="min" />
+                    --đến : <input type="number" name="max" />
+                    <input type="submit" value="Tìm giá" class="btn btn-warning" />
+                </td>
+            </tr>
+        </table>
+    }
+    <!--Kết thúc -->
+</div>
+<!--Hiển thị danh sách sản phẩm-->
+@if (Model.Products != null && Model.Products.Any())
+{
+    <h2 class="bg-success"> DANH SÁCH SẢN PHẨM</h2>
+    <table class="table bg-info table-responsive">
+        <thead>
+            <tr>
+                <th class="bg-success col-md-2">Hình ảnh</th>
+                <th class="bg-success col-md-3">Tên sản phẩm</th>
+                <th class="bg-success col-md-1">Đơn giá</th>
+                <th class="bg-success col-md-2">Danh mục</th>
+                <th class="bg-success col-md-4"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model.Products)
+            {
                 <tr>
                     <td>
-                        Tên Sản phẩm : <input type="text" name="SearchString" />
-                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
+                        @*@Html.DisplayFor(modelItem => product.ProductImage)*@
+                        <img src="~/Content/Image/@product.ProductImage" width="100" />
                     </td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
                     <td>
-                        Đơn giá từ : <input type="number" name="min" />
-                        --đến : <input type="number" name="max" />
-                        <input type="submit" value="Tìm giá" class="btn btn-warning" />
+                        @Html.ActionLink("Sửa", "Edit", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
+                        @Html.ActionLink("Chi tiết", "Details", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
+                        @Html.ActionLink("Xóa", "Delete", new { id = product.ProductID }, new { @class = "btn btn-primary btn-sm " })
                     </td>
                 </tr>
-            </table>
-        }
-        <!--Kết thúc -->
+            }
+        </tbody>
+    </table>
+    <div class="pagination-container">
+        @Html.PagedListPager(Model.Products, page => Url.Action("ProductList", new { page, searchTerm = Model.SearchTerm }))
     </div>
-    <div class="row">
-        @foreach (var pro in Model)
-        {
-            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card-pro">
-                    <p>@Html.DisplayFor(model => pro.ProductID)</p>
-                    <img src="~/Content/images/@pro.ProductImage" width="200" height="250" />
-                    <p>@Html.DisplayFor(model => pro.ProductName)</p>
-                    <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.ProductPrice)</font></p>
-                    <p style="text-align: center;">
-                        <a class="btn btn-info" href="/Products/Details/@pro.ProductID"> Chi tiết </a>
-                        <input type="submit" value="Mua" class="btn btn-danger" />
-                    </p>
-                </div>
-                <div>
-                    @Html.Partial("PVListProduct", Model)
-                </div>
-            </div>
-        }
+}
+else
+{
+    <p>Không tìm thấy sản phẩm</p>}
+<div class="form-group">
+    <div class="col-md-offset-8 col-md-4">
+        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
     </div>
 </div>
