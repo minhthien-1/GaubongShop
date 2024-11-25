@@ -138,9 +138,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CheckoutVMController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -181,6 +183,7 @@
     <Compile Include="Models\ViewModel\Cart.cs" />
     <Compile Include="Models\ViewModel\CartItem.cs" />
     <Compile Include="Models\ViewModel\CartService.cs" />
+    <Compile Include="Models\ViewModel\CheckoutVM.cs" />
     <Compile Include="Models\ViewModel\LoginVM.cs" />
     <Compile Include="Models\ViewModel\ProductDetailVM.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
@@ -378,10 +381,14 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\ShowCart.cshtml" />
     <Content Include="Views\Home\ProductListPV.cshtml" />
+    <Content Include="Views\CheckoutVM\Checkout.cshtml" />
+    <Content Include="Views\Home\View.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\Default\" />
+    <Folder Include="Views\Order\" />
     <Folder Include="Views\RegisterVM\" />
   </ItemGroup>
   <ItemGroup>

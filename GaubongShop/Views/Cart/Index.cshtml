@@ -80,7 +80,7 @@
                 </div>
                 <div class="col-md-3 cart-section">
                     <div><strong>Tổng giá trị: &nbsp;<span style="color:red">@Model.TotalValue().ToString("N0")</span></strong></div>
-                    <div>@Html.ActionLink("Mua hàng", "Index", "Payment", null, new { @class = "btn btn-danger cart-button" })</div>
+                    <div>@Html.ActionLink("Mua hàng", "Checkout", "Order", null, new { @class = "btn btn-danger cart-button" })</div>
                 </div>
     }
 </div>
