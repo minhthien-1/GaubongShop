@@ -1,50 +1,35 @@
-﻿@model IEnumerable<GaubongShop.Models.Product>
+﻿@model GaubongShop.Models.ViewModel.ProductSearchVM
 
 @{
     ViewBag.Title = "ProductList";
     Layout = "~/Views/Shared/TrangChuLayout.cshtml";
 }
 
-<div class="container">
-    <h2>MUA HÀNG</h2>
-    <div style="border: 3px solid #ff6a00; height: 70px; text-align: center; padding: 15px;">
-        <!-- Đoạn thêm -->
-        @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
-        {
-            <table>
-                <tr>
-                    <td>
-                        Tên Sản phẩm : <input type="text" name="SearchString" />
-                        <input type="submit" value="Tìm kiếm" class="btn btn-warning" />
-                    </td>
-                    <td>
-                        Đơn giá từ : <input type="number" name="min" />
-                        --đến : <input type="number" name="max" />
-                        <input type="submit" value="Tìm giá" class="btn btn-warning" />
-                    </td>
-                </tr>
-            </table>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Tim kiem</title>
+    <style>
+        .search-container, order-container{
+            padding-top: 20px;
+            display:flex;
+            justify-content: center;
+            align-items: center;
         }
-        <!--Kết thúc -->
-    </div>
-    <div class="row">
-        @foreach (var pro in Model)
-        {
-            <div class="col-sm-12 col-sm-6 col-md-4 col-lg-3">
-                <div class="card-pro">
-                    <p>@Html.DisplayFor(model => pro.ProductID)</p>
-                    <img src="~/Content/images/@pro.ProductImage" width="200" height="250" />
-                    <p>@Html.DisplayFor(model => pro.ProductName)</p>
-                    <p>Đơn giá : <font color="red">@Html.DisplayFor(model => pro.ProductPrice)</font></p>
-                    <p style="text-align: center;">
-                        <a class="btn btn-info" href="/Products/Details/@pro.ProductID"> Chi tiết </a>
-                        <input type="submit" value="Mua" class="btn btn-danger" />
-                    </p>
+    </style>
+</head>
+<body>
+    <!--Form tìm kiếm-->
+    @using (Html.BeginForm("ProductList", "Products", FormMethod.Get))
+            {
+                <div class="form-group search-container">
+                    @Html.TextBoxFor(m => m.SearchTerm, new { 
+               @class="form-control",
+               placeholder = "Nhập sản phầm cần tìm"
+               })
+                    <button type="submit" class="btn btn-primary">Tìm kiếm</button>
                 </div>
-                <div>
-                    @Html.Partial("PVListProduct", Model)
-                </div>
-            </div>
-        }
-    </div>
-</div>
+    }
+    @Html.Partial("ProductListPV", Model)
+</body>
+</html>

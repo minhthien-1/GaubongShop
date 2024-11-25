@@ -383,7 +383,7 @@
     <Content Include="Views\Home\ProductListPV.cshtml" />
     <Content Include="Views\CheckoutVM\Checkout.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
-    <Content Include="Views\Products\PVListProduct.cshtml" />
+    <Content Include="Views\Products\ProductListPV.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
