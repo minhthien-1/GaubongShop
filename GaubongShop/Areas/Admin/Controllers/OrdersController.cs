@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using GaubongShop.Models;
+using GaubongShop.Models.ViewModel;
 
 namespace GaubongShop.Areas.Admin.Controllers
 {
@@ -118,6 +119,30 @@ namespace GaubongShop.Areas.Admin.Controllers
             db.Orders.Remove(order);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult OrderStatistics()
+        {
+            // Lấy tất cả các đơn hàng
+            var orders = db.Orders.ToList();
+
+            // Lấy tất cả các chi tiết đơn hàng liên quan
+            var orderDetails = db.OrderDetails.ToList();
+
+            // Tính tổng số đơn hàng
+            var orderCount = orders.Count();
+
+            // Tính tổng giá trị của tất cả các đơn hàng
+            var totalAmount = orderDetails.Sum(od => od.Quantity * od.UnitPrice);
+
+            // Tạo ViewModel để truyền dữ liệu vào View
+            var model = new OrderStatisticsVM
+            {
+                OrderCount = orderCount,
+                TotalAmount = totalAmount
+            };
+
+            return View(model);
         }
 
         protected override void Dispose(bool disposing)

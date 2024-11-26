@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Trogiup";
+    Layout = "~/Views/Shared/TrangChuLayout.cshtml";
+}
+<head>
+    <style>
+        .hinh3 img{
+            height:300px;
+            width:300px;
+        }
+        .chu a{
+            font-size:1.5rem;
+            color:blue
+        }
+        .chu a:hover{
+            color:red
+        }
+        .chu:hover{
+            color:red
+        }
+    </style>
+</head>
+<h2>BẠN CẦN GIÚP ĐỠ?</h2>
+<div class="hinh3"><img src="~/Content/Image/giupdo.jpg" /></div>
+
+<h3>Bạn có thắc mắc về điều khoản dịch vụ? Hãy vào đây </h3>
+<h3 class="chu"> @Html.ActionLink("Điều khoản sử dụng", "dksd", "Footer")</h3>
+
+<h3>Hay bạn có thắc mắc về chỉnh sách bảo hành và đổi trả của chúng tôi?</h3>
+<h3 class="chu">@Html.ActionLink("Bảo hành - bồi hoàn", "BaoHanh", "Footer")</h3>
+
+<h3>Nếu như bạn có thắc mắc nào không có trong dịch vụ hay muốn hiểu rõ hơn hãy liên hệ fanpage của chúng tôi: </h3>
+<a href="https://www.facebook.com/profile.php?id=100022896304353" style="font-size:1.5rem" class="chu">GAUBONG.SHOP</a>

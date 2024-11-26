@@ -103,6 +103,14 @@ namespace GaubongShop.Controllers
         {
             return View();
         }
+        public ActionResult Trogiup()
+        {
+            return View();
+        }
+        public ActionResult ThongBao()
+        {
+            return View();
+        }
         public ActionResult batdaumuasam(int? category, int? page, string SearchString)
         {
             var products = db.Products.Include(p => p.Category);

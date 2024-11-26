@@ -19,7 +19,7 @@
         }
     </style>
 </head>
-<h1>ĐƠN HÀNG</h1>
+<h1>CHI TIẾT ĐƠN HÀNG</h1>
 <div>
     <hr />
     <dl class="row">
@@ -33,7 +33,7 @@
             Địa chỉ giao hàng:
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.AddressDelivery)
+            @Html.DisplayFor(model => model.ShippingAddress)
         </dd>
         <dt class="control-label col-sm-2">
             Khách hàng:
@@ -72,6 +72,6 @@
     </tr>
 </table>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.OrderID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Cập nhật", "Edit", new { id = Model.OrderID }) |
+    @Html.ActionLink("Quay về danh sách", "Index")
 </p>

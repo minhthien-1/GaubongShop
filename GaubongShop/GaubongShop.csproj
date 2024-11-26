@@ -142,6 +142,7 @@
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\FooterController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OderConfirmationController.cs" />
     <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -185,6 +186,9 @@
     <Compile Include="Models\ViewModel\CartService.cs" />
     <Compile Include="Models\ViewModel\CheckoutVM.cs" />
     <Compile Include="Models\ViewModel\LoginVM.cs" />
+    <Compile Include="Models\ViewModel\OderConfirmationVM.cs" />
+    <Compile Include="Models\ViewModel\OderItemVM.cs" />
+    <Compile Include="Models\ViewModel\OrderStatisticsVM.cs" />
     <Compile Include="Models\ViewModel\ProductDetailVM.cs" />
     <Compile Include="Models\ViewModel\ProductSearchVM.cs" />
     <Compile Include="Models\ViewModel\RegisterVM.cs" />
@@ -229,40 +233,24 @@
     <Content Include="Content\Image\18.jpg" />
     <Content Include="Content\Image\19.jpg" />
     <Content Include="Content\Image\20.jpg" />
+    <Content Include="Content\Image\Admin2.jpg" />
     <Content Include="Content\Image\bocquagiare.PNG" />
     <Content Include="Content\Image\ghtn2.PNG" />
     <Content Include="Content\Image\giat.PNG" />
+    <Content Include="Content\Image\giupdo.jpg" />
     <Content Include="Content\Image\hinh-nen-gau-cute-6.jpg" />
     <Content Include="Content\Image\hinhniengau.jpg" />
     <Content Include="Content\Image\login-bg.jpg" />
     <Content Include="Content\Image\nennho.PNG" />
     <Content Include="Content\Image\register-bg.jpg" />
     <Content Include="Content\Image\tangthiepmienphi.PNG" />
+    <Content Include="Content\Image\thongbao.jpg" />
     <Content Include="Content\myStyle\CustomerHome.css" />
     <Content Include="Content\PagedList.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="images\01.jpg" />
-    <Content Include="images\02.jpg" />
-    <Content Include="images\03.jpg" />
-    <Content Include="images\04.jpg" />
-    <Content Include="images\05.png" />
-    <Content Include="images\06.jpg" />
-    <Content Include="images\07.jpg" />
-    <Content Include="images\08.jpg" />
-    <Content Include="images\09.jpg" />
-    <Content Include="images\10.jpg" />
-    <Content Include="images\11.jpg" />
-    <Content Include="images\12.jpg" />
-    <Content Include="images\13.jpg" />
-    <Content Include="images\14.jpg" />
-    <Content Include="images\15.jpg" />
-    <Content Include="images\16.jpg" />
-    <Content Include="images\17.jpg" />
-    <Content Include="images\18.jpg" />
-    <Content Include="images\19.jpg" />
-    <Content Include="images\20.jpg" />
+    <Content Include="images\anhnenAdmin.jpg" />
     <Content Include="images\remove.jpg" />
     <Content Include="Models\Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -327,8 +315,9 @@
     <Content Include="Areas\Admin\Views\Users\PVListUser.cshtml" />
     <Content Include="Areas\Admin\Views\Products\PVListProduct.cshtml" />
     <Content Include="Areas\Admin\Views\Products\ProductList.cshtml" />
-    <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
     <Content Include="Areas\Admin\Views\Customers\PVListCustomer.cshtml" />
+    <Content Include="Areas\Admin\Views\Orders\OrderStatistics.cshtml" />
+    <Content Include="Areas\Admin\Views\TaiKhoan\Login.cshtml" />
     <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\tpaooo1806-001-site1 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
@@ -381,15 +370,18 @@
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\ShowCart.cshtml" />
     <Content Include="Views\Home\ProductListPV.cshtml" />
-    <Content Include="Views\CheckoutVM\Checkout.cshtml" />
     <Content Include="Views\Home\View.cshtml" />
     <Content Include="Views\Products\ProductListPV.cshtml" />
+    <Content Include="Views\Order\Checkout.cshtml" />
+    <Content Include="Views\OderConfirmation\OrderConfirmation.cshtml" />
+    <Content Include="Views\Home\Trogiup.cshtml" />
+    <Content Include="Views\Home\ThongBao.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
+    <Folder Include="Views\CheckoutVM\" />
     <Folder Include="Views\Default\" />
-    <Folder Include="Views\Order\" />
     <Folder Include="Views\RegisterVM\" />
   </ItemGroup>
   <ItemGroup>

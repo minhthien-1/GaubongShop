@@ -200,6 +200,10 @@
         .search_icon:hover {
             background-color: rosybrown
         }
+        .header_gt_item a{
+            color:white;
+            font-size:1.4rem;
+        }
 </style>
 <!DOCTYPE html>
 
@@ -219,17 +223,14 @@
             </div>
 
             <ul class="header_gt_list gap-3 m-0 w-100 justify-content-end align-items-center">
-                @*<li class="header_gt_item_b gap-1 align-item-center d-flex">
-                    <i class="header_gt_item_b fa-solid fa-bars"></i>
-                    <a class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Danh mục sản phẩm</a>
-                </li>*@
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-bell"></i>
-                    <a href="" class=" header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Thông báo</a>
+                    @*<a href="" class=" header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Thông báo</a>*@
+                    @Html.ActionLink("Thông báo","ThongBao","Home")
                 </li>
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-regular fa-circle-question"></i>
-                    <a href="" class="header_gt_item_link fs-5 d-flex link-underline-opacity-0 link-light">Trợ giúp</a>
+                    @Html.ActionLink("Trợ giúp","Trogiup","Home")
                 </li>
                 <li style="padding:0 30px;">
                     <i class="login-cutomer-icon"></i>
@@ -246,7 +247,7 @@
 
                 <li class="header_gt_item gap-1 align-item-center d-flex">
                     <i class="header_gt_item_b fa-solid fa-cart-shopping"></i>
-                    @Html.ActionLink("Gio hang", "Index", "Cart")
+                    @Html.ActionLink("Giỏ hàng", "Index", "Cart")
                 </li>
             </ul>
         </nav>

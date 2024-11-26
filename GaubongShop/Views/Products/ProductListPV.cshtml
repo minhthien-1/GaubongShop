@@ -6,39 +6,52 @@
 }
 <head>
     <style>
-        img {
+        .img  img{
             height: 150px;
             max-width: 150px;
+        }
+        .bg-cam {
+            background-color: navajowhite;
+            align-items: center;
+        }
+        .nut {
+            color:white!important
+        }
+            
+        .nut a:hover{
+            color:black;
         }
     </style>
 </head>
 <!--Hiển thị danh sách sản phẩm-->
 @if (Model.Products != null && Model.Products.Any())
 {
-    <h2 class="bg-success"> DANH SÁCH SẢN PHẨM</h2>
-    <table class="table bg-info table-responsive">f
+    <h2 class="bg-cam"> DANH SÁCH SẢN PHẨM</h2>
+    <table class="table table-responsive">
         <thead>
             <tr>
-                <th class="bg-success col-md-2">Hình ảnh</th>
-                <th class="bg-success col-md-3">Tên sản phẩm</th>
-                <th class="bg-success col-md-1">Đơn giá</th>
-                <th class="bg-success col-md-2">Danh mục</th>
-                <th class="bg-success col-md-4"></th>
+                <th class="bg-cam col-md-2">Hình ảnh</th>
+                <th class="bg-cam col-md-3">Tên sản phẩm</th>
+                <th class="bg-cam col-md-1">Đơn giá</th>
+                <th class="bg-cam col-md-2">Danh mục</th>
+                <th class="bg-cam col-md-4"></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var product in Model.Products)
             {
                 <tr>
-                    <td>
+                    <td img>
                         @*@Html.DisplayFor(modelItem => product.ProductImage)*@
-                    <img src="~/Content/Image/@product.ProductImage" width="100" />
-                </td>
-                <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
-                <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
-                <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
-            </tr>
-        }
+                        <img src="~/Content/Image/@product.ProductImage" width="100" />
+                    </td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductName)</td>
+                    <td>@Html.DisplayFor(modelItem => product.ProductPrice)</td>
+                    <td>@Html.DisplayFor(modelItem => product.Category.CategoryName)</td>
+                    <td> <a class="nut btn btn-default" href="/Home/ProductDetails/@product.ProductID"style="background-color:burlywood"> Chi tiết </a></td>
+                </tr>
+               
+            }
         </tbody>
     </table>
     <div class="pagination-container">
@@ -48,8 +61,4 @@
 else
 {
     <p>Không tìm thấy sản phẩm</p>}
-<div class="form-group">
-    <div class="col-md-offset-8 col-md-4">
-        @Html.ActionLink("Thêm mới", "Create", null, new { @class = "btn btn-primary" })
-    </div>
-</div>
+

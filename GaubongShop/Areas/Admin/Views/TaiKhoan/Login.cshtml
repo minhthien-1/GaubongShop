@@ -1,9 +1,7 @@
-﻿
-
-@model GaubongShop.Models.ViewModel.LoginVM
+﻿@model GaubongShop.Models.ViewModel.LoginVM
 @{
     ViewBag.Title = "Login";
-    Layout = "~/Views/Shared/TrangChuLayout.cshtml";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
 <!DOCTYPE html>
@@ -74,7 +72,7 @@
 <div style="background-size: 80%; background-image: url('../../content/image/login-bg.jpg'); background-repeat:no-repeat; background-position:center ">
 
     <div class="login">
-        @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+        @using (Html.BeginForm("Login", "TaiKhoan", FormMethod.Post))
         {
             @Html.AntiForgeryToken()
             <div class="form-horizontal">
@@ -98,7 +96,7 @@
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <input type="submit" value="Đăng nhập" class="btn btn-default" style="width: 275px; height: 40px; border: 1px solid #808080; margin: 5px; align-items: center; background-color: cornflowerblue;" />
-                        <p>Bạn chưa có tài khoản? <a href="~/Account/Register" style="text-decoration:none; color:deepskyblue;">Đăng ký </a></p>
+
                     </div>
                 </div>
             </div>

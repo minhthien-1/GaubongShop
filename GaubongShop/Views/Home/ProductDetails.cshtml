@@ -28,17 +28,20 @@
         .pro-sale{
             font-weight:lighter;
         }*/
-
+        .upd a{
+            color:white;
+            font-size:1.3rem;
+        }
     </style>
 </head>
 <div class="container-fluid pro">
     <div class="div-horizontal">
         @*Khối bên trái*@
-        <div class="col-md-3 pro-section">    @*Ảnh sản phẩm*@
+        <div class="col-sm-3 pro-section">    @*Ảnh sản phẩm*@
           <img src="~/Content/Image/@Model.product.ProductImage" />
         </div> 
         @*Khối ở giữa*@
-        <div class="col-md-5 pro-section">
+        <div class="col-sm-5 pro-section">
             @*Phần thông tin sản phẩm*@
             <div>
                 <h4><strong>@Html.DisplayFor(model => model.product.ProductName)</strong></h4>
@@ -56,9 +59,9 @@
             {
                 <h4><strong>Số lượng</strong></h4>
                 <p>@Html.TextBoxFor(model=>model.quantity, new { @class = "form-control", @type = "number", @min = 1 })</p>
-                <h4><strong>Tạm tính</strong></h4>
+                <h4 style="color:red"><strong>Tạm tính</strong></h4>
                 <p>@Model.estimatedValue.ToString("N0")</p>
-                <p>
+                <p class="upd">
                     @Html.ActionLink("Thêm vào giỏ hàng","AddToCart","Cart", new {id=Model.product.ProductID, quantity = Model.quantity},
                     new { @class = "btn btn-default btn-sm", @style = "background-color:burlywood" })
                 </p>
